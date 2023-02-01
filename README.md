@@ -12,6 +12,7 @@ An IDE console-based fighting game with the option to play against the computer 
 * Inheritance
 * Classes & Objects (Attributes, Functions and Methods)
 * Data Structures (ArrayLists, Arrays)
+* Practiced Git and Github commands from the Terminal to create this repository.
 
 
 # Future Development Goals
