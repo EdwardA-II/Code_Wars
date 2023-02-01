@@ -15,7 +15,7 @@ public class Game {
         // userInputValid...
 
         //Print rules and mechanics.
-        //printRulesMechanics...
+        printRulesMechanics();
         
         sc.close();
 
@@ -24,6 +24,7 @@ public class Game {
     public static void printRulesMechanics()
     {
         System.out.println("RULES AND MECHNICS: ");
+        // Create a txt file called "Rules_Mechanics.txt" and print the rules to the console. 
 
 
         
