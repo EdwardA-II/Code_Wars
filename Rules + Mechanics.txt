@@ -1,3 +1,7 @@
 1. This is a turn-based game where you get to go first!
-2. 
+2. There are 10 Characters, 5 Classes (or Types) with 2 Characters each.
+3. Each Class of Character has their own strengths and weaknesses.
+4. You can pick one Character and choose from a variety of items that have various effects.
+5. Good luck!
+
 
