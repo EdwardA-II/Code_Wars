@@ -1,5 +1,62 @@
-// Explain each character and their stats...
+***************************** CLASSES + CHARACTER INFORMATION *****************************
+** TANKS **
+High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
 
-// First explain each class...
+- ATLAS
+  Ability: Endure
+  - Increases defense (+100 PTS) for the next 2 moves.
 
-// Then explain each character...
+- RONNIE COLEMAN
+  Ability: Lightweight Baby!
+  - Bonus Damage (+50 PTS) for the next 2 moves.
+
+** MARKSMAN **
+Low DEFENSE, High ACCURACY, Moderate ATTACK, Limited ITEMS (1 ITEM)
+
+- DEADSHOT
+  Ability: Cut and Run
+  - Ability description goes here...
+
+
+- HAWKEYE
+  Ability: Ronin
+  - Ability description goes here...
+
+
+** THIEF **
+Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
+
+- KAZUMA
+  Ability: STEAL
+  - Takes one item from the OPPONENT’s inventory permanently.
+
+- REVY
+  Ability: Two Hands
+  - Deals 50 DAMAGE and takes one item from the OPPONENT's inventory for 1 move.
+
+
+
+** SOLDIER **
+
+- Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
+
+- PATHFINDER
+  Ability: The Way
+  - Ability description goes here...
+
+
+- CHAMPION
+  Ability: Victory
+  - Ability description goes here...
+
+
+** MAGE ** 
+Low DEFENSE, High ATTACK, Moderate ACCURACY, No ITEMS
+
+- RIMURU
+  Ability: Gluttony
+  - Does 25 DAMAGE and permanently lowers OPPONENT's DEFENSE by 100 PTS.
+
+- MEGUMIN
+  Ability: Explosion 
+  - Casts a spell that deals 300 DAMAGE

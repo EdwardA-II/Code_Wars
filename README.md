@@ -13,7 +13,7 @@ An IDE console-based fighting game with the option to play against the computer 
 * Classes & Objects (Attributes, Functions and Methods)
 * Data Structures (ArrayLists, Arrays)
 * Practiced Git and Github commands from the Terminal to create this repository.
-
+* Utilized the Java Sound Technology API to play in-game audio and music.
 
 # Future Development Goals
 
@@ -32,12 +32,13 @@ An IDE console-based fighting game with the option to play against the computer 
 
     * ["Itty Bitty" - Kevin MacLeod](https://www.youtube.com/watch?v=DzFXGsRvSwA&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=14&ab_channel=FreeMusic)
 
+    * ["Up In My Jam" - Kubbi](https://www.youtube.com/watch?v=cLX0cyh6_Ro&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=20&ab_channel=FreeMusic)
 
+    * ["MAZE" - Density & Time](https://www.youtube.com/watch?v=OuRvOCf9mJ4&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=4&ab_channel=FreeMusic)
 
 # Contact
 
 Connect with me or share any feedback! (Bugs, suggestions, thoughts!)
 
 * Email: ekabusiness2023@gmail.com
-* [LinkedIn](https://www.linkedin.com/in/edward-amoako-4798251bb/ "LinkedIn") 
-
+* [LinkedIn](https://www.linkedin.com/in/edward-amoako-4798251bb/ "LinkedIn")
