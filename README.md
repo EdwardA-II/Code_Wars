@@ -20,6 +20,20 @@ An IDE console-based fighting game with the option to play against the computer 
 * Make the game playable in a web browser to make the game accessible to the public and garner more feedback.
     * Please feel free to submit suggestions on ways to make this happen!
 
+# Other Resources
+* MUSIC (Copyright Free)
+    * ["Night Shade" - AdhesiveWombat](https://www.youtube.com/watch?v=mRN_T6JkH-c&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=2&ab_channel=FreeMusic)
+
+    * ["Digestive Biscuit" - Kubbi](https://www.youtube.com/watch?v=PFbYfgStDQc&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=17&ab_channel=FreeMusic)
+
+    * ["Not dead YET!" - NeXsard](https://www.youtube.com/watch?v=6HvFLkuFOvc&ab_channel=NeXsard)
+
+    * ["Pixelland" - Kevin MacLeod](https://www.youtube.com/watch?v=HUCjaaQR6cs&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=14&ab_channel=FreeMusic)
+
+    * ["Itty Bitty" - Kevin MacLeod](https://www.youtube.com/watch?v=DzFXGsRvSwA&list=PLwJjxqYuirCLkq42mGw4XKGQlpZSfxsYd&index=14&ab_channel=FreeMusic)
+
+
+
 # Contact
 
 Connect with me or share any feedback! (Bugs, suggestions, thoughts!)
