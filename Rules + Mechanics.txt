@@ -1,7 +1,7 @@
 *********************************** RULES AND MECHANICS ***********************************
 1. This is a turn-based game where you get to go first!
 
-2. There are 10 CHARACTERS, 5 CLASSES (or Types) with 2 CHARACTER each.
+2. There are 10 CHARACTERS, 5 CLASSES (or Types) with 2 CHARACTERS each.
 
 3. Each Class of Character has their own strengths and weaknesses.
 
