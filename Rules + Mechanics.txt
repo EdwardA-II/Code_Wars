@@ -11,7 +11,7 @@
 
 6. YOU CAN ATTACK or use and ITEM during your move.
 
-7. DEFENSE acts as a buffer between your OPPONENT’s attack and your health.
+7. DEFENSE acts as a buffer between your OPPONENTs attack and your health.
    For example, if your Character has 200 DEFENSE and your OPPONENT attack has 300 DAMAGE, you
    will only take 100 DAMAGE.
 

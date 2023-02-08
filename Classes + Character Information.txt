@@ -32,7 +32,7 @@ Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
 
 - REVY
   Ability: Two Hands
-  - Deals 50 DAMAGE and takes one item from the OPPONENT's inventory for 1 move.
+  - Deals 50 DAMAGE and takes one item from the OPPONENTs inventory for 1 move.
 
 
 
@@ -55,7 +55,7 @@ Low DEFENSE, High ATTACK, Moderate ACCURACY, No ITEMS
 
 - RIMURU
   Ability: Gluttony
-  - Does 25 DAMAGE and permanently lowers OPPONENT's DEFENSE by 100 PTS.
+  - Does 25 DAMAGE and permanently lowers OPPONENTs DEFENSE by 100 PTS.
 
 - MEGUMIN
   Ability: Explosion 
