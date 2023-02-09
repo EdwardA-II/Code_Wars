@@ -10,13 +10,13 @@ High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
   Ability: Lightweight Baby!
   - Bonus Damage (+50 PTS) for the next 2 moves.
 
+
 ** MARKSMAN **
 Low DEFENSE, High ACCURACY, Moderate ATTACK, Limited ITEMS (1 ITEM)
 
 - DEADSHOT
   Ability: Cut and Run
   - Ability description goes here...
-
 
 - HAWKEYE
   Ability: Ronin
@@ -28,12 +28,11 @@ Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
 
 - KAZUMA
   Ability: STEAL
-  - Takes one item from the OPPONENT’s inventory permanently.
+  - Takes one item from the OPPONENTs inventory permanently.
 
 - REVY
   Ability: Two Hands
   - Deals 50 DAMAGE and takes one item from the OPPONENTs inventory for 1 move.
-
 
 
 ** SOLDIER **

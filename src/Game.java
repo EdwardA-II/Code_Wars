@@ -1,11 +1,25 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
+import javax.sound.sampled.*;
+
 
 public class Game {
 
     public static void main(String[] args) throws FileNotFoundException
     {
+        //Play the Main Menu music.
+        try 
+        {
+            playMusic();
+        } 
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
+
+            e.printStackTrace(); //Tell me which exact error it throws.
+        }
+        
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
         Scanner sc = new Scanner(System.in);
@@ -48,16 +62,29 @@ public class Game {
     }
 
     /**
+     * @throws IOException
+     * @throws UnsupportedAudioFileException
+     * @throws LineUnavailableException
      * 
      * 
      */
-    public static void playMusic()
-    {
-        // Create an Audio File object.
-
+    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException
+    {   // Make this into a CLASS? bc you need to...
         // Play different game music depending on the scenario.
 
+        // Create an Audio File object and read from it.
+        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav");
+        Scanner musicScanner = new Scanner(System.in);
 
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+
+
+
+
+        // musicScanner.close();
     }
 
     /**
@@ -67,8 +94,8 @@ public class Game {
     public static void printRulesMechanics() throws FileNotFoundException
     {
         // Create a File object to hold the Rules + Mechanics file. 
-        File text = new File("Code_Combat/Rules + Mechanics.txt");
-		Scanner textReader = new Scanner(text);
+        File rulesMechs = new File("Code_Combat/Rules + Mechanics.txt");
+		Scanner textReader = new Scanner(rulesMechs);
 		
 		// Open the file and print each line until done.
 		while (textReader.hasNext()) 
