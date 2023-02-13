@@ -36,6 +36,13 @@ public class Game {
         // Print Classes and Characters.
         System.out.println();
         printClassesCharacters();
+
+        // Prompt for Character Selection.
+        System.out.print("Choose your CHARACTER: ");
+        userInput = sc.nextLine();
+        userInputValid(userInput, sc);
+        System.out.println("You selected: " + userInput);
+        
         
         sc.close();
 
@@ -77,9 +84,9 @@ public class Game {
         Scanner musicScanner = new Scanner(System.in);
 
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioStream);
-        clip.start();
+        Clip song = AudioSystem.getClip();
+        song.open(audioStream);
+        song.start();
 
 
 

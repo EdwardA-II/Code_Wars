@@ -4,11 +4,11 @@ High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
 
 - ATLAS
   Ability: Endure
-  - Increases defense (+100 PTS) for the next 2 moves.
+  - ATLAS increases their DEFENSE (+100 PTS) for the next 2 moves.
 
 - RONNIE COLEMAN
   Ability: Lightweight Baby!
-  - Bonus Damage (+50 PTS) for the next 2 moves.
+  - RONNIE COLEMAN gains bonus DAMAGE (+50 PTS) for the next 2 moves.
 
 
 ** MARKSMAN **
@@ -16,11 +16,11 @@ Low DEFENSE, High ACCURACY, Moderate ATTACK, Limited ITEMS (1 ITEM)
 
 - DEADSHOT
   Ability: Cut and Run
-  - Ability description goes here...
+  - DEADSHOT gets a temporary DAMAGE buff of 1.5x normal attack DAMAGE for 1 turn.
 
 - HAWKEYE
   Ability: Ronin
-  - Ability description goes here...
+  - RONIN bypasses their OPPONENTs DEFENSE and deals 150 DAMAGE directly to their health.
 
 
 ** THIEF **
@@ -28,25 +28,24 @@ Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
 
 - KAZUMA
   Ability: STEAL
-  - Takes one item from the OPPONENTs inventory permanently.
+  - KAZUMA takes one item from the OPPONENTs inventory permanently.
 
 - REVY
   Ability: Two Hands
-  - Deals 50 DAMAGE and takes one item from the OPPONENTs inventory for 1 move.
+  - REVY deals 50 DAMAGE and takes one item from the OPPONENTs inventory for 1 move.
 
 
 ** SOLDIER **
-
-- Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
+Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
 
 - PATHFINDER
   Ability: The Way
-  - Ability description goes here...
+  - PATHFINDER evades their OPPONENTs attack and becomes invincible for 1 turn.
 
 
 - CHAMPION
   Ability: Victory
-  - Ability description goes here...
+  - CHAMPION raises their DEFENSE and ATTACK by 50 PTS each.
 
 
 ** MAGE ** 
@@ -54,8 +53,8 @@ Low DEFENSE, High ATTACK, Moderate ACCURACY, No ITEMS
 
 - RIMURU
   Ability: Gluttony
-  - Does 25 DAMAGE and permanently lowers OPPONENTs DEFENSE by 100 PTS.
+  - RIMURU does 25 DAMAGE and permanently lowers OPPONENTs DEFENSE by 100 PTS.
 
 - MEGUMIN
   Ability: Explosion 
-  - Casts a spell that deals 300 DAMAGE
+  - MEGUMIN casts a spell that deals 300 DAMAGE.
