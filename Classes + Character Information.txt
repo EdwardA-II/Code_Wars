@@ -1,4 +1,5 @@
 ***************************** CLASSES + CHARACTER INFORMATION *****************************
+
 ** TANKS **
 High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
 
@@ -58,3 +59,5 @@ Low DEFENSE, High ATTACK, Moderate ACCURACY, No ITEMS
 - MEGUMIN
   Ability: Explosion 
   - MEGUMIN casts a spell that deals 300 DAMAGE.
+
+*******************************************************************************************

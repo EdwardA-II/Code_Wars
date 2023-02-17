@@ -37,8 +37,11 @@ public class Game {
         System.out.println();
         printClassesCharacters();
 
+        // Create Characters.
+        createTanks();
+
         // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER: ");
+        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         userInput = sc.nextLine();
         userInputValid(userInput, sc);
         System.out.println("You selected: " + userInput);
@@ -49,22 +52,38 @@ public class Game {
     }
 
     /**
-     * Check if input is valid by seeing if it matches the specified criteria.
+     * Check if input is valid by seeing if it matches all the possible correct inputs.
      * 
      * @param input - What the user entered into the terminal.
      * @param sc - The scanner to read the new input from the user (repeatedly).
      */
     public static void userInputValid(String input, Scanner sc)
     {   
+        // Hold all possible correct inputs to check.
+        ArrayList<String> menuInputs = new ArrayList<>(); // Menu(s)
+        ArrayList<String> characterInputs = new ArrayList<>(); // Characters
+        ArrayList<String> actionInputs = new ArrayList<>();
+
+        // Menu Options
+        menuInputs.add("START");
+        menuInputs.add("QUIT");
+
+        // TANK Options
+        characterInputs.add("ATLAS");
+        characterInputs.add("RONNIE COLEMAN");
+
+        // Actions
+        actionInputs.add("ATTACK");
+        // ("Use" + x) item...
+
+
         // Repeatedly tell them that their entry is invalid.
-        while ( !input.equals("START") )
+        while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input))
         {
-            System.out.print("INVALID INPUT! Please enter \"START\"!: ");
+            System.out.print("INVALID INPUT! Please try again: ");
             input = sc.nextLine();
         }
         
-        // Need some way to test all potential input (character names, moves, attack, defend, etc).
-        // If not, I might need methods that check each type of input.
 
     }
 
@@ -78,6 +97,7 @@ public class Game {
     public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException
     {   // Make this into a CLASS? bc you need to...
         // Play different game music depending on the scenario.
+        // Pass in a "String status" parameter that tells the method which one to play and stop.
 
         // Create an Audio File object and read from it.
         File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav");
@@ -87,8 +107,6 @@ public class Game {
         Clip song = AudioSystem.getClip();
         song.open(audioStream);
         song.start();
-
-
 
 
         // musicScanner.close();
@@ -133,10 +151,27 @@ public class Game {
     }
 
 
-    // Method to create all of the Characters from the Character Interface.
-    // public static Character ArrayList ()
-    // {
+    // Method to create all of the TANK Characters from the Character Interface.
+    public static void createTanks()
+    {
+        // Create the TANKS.
+        Character Atlas = new Tank();
+        Character RonnieColeman = new Tank();
 
-    // } 
+        // Create the MARKSMEN.
+
+
+        // Create the THIEVES.
+
+
+        // Create the SOLDIERS.
+
+
+        // Create the MAGES.
+
+
+    }
+
+
 
 }
