@@ -3,11 +3,11 @@
 ** TANKS **
 High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
 
-- ATLAS
+  [ATLAS]
   Ability: Endure
   - ATLAS increases their DEFENSE (+100 PTS) for the next 2 moves.
 
-- RONNIE COLEMAN
+  [RONNIE COLEMAN]
   Ability: Lightweight Baby!
   - RONNIE COLEMAN gains bonus DAMAGE (+50 PTS) for the next 2 moves.
 
@@ -15,11 +15,11 @@ High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
 ** MARKSMAN **
 Low DEFENSE, High ACCURACY, Moderate ATTACK, Limited ITEMS (1 ITEM)
 
-- DEADSHOT
+  [DEADSHOT]
   Ability: Cut and Run
   - DEADSHOT gets a temporary DAMAGE buff of 1.5x normal attack DAMAGE for 1 turn.
 
-- HAWKEYE
+  [HAWKEYE]
   Ability: Ronin
   - RONIN bypasses their OPPONENTs DEFENSE and deals 150 DAMAGE directly to their health.
 
@@ -27,11 +27,11 @@ Low DEFENSE, High ACCURACY, Moderate ATTACK, Limited ITEMS (1 ITEM)
 ** THIEF **
 Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
 
-- KAZUMA
+  [KAZUMA]
   Ability: STEAL
   - KAZUMA takes one item from the OPPONENTs inventory permanently.
 
-- REVY
+  [REVY]
   Ability: Two Hands
   - REVY deals 50 DAMAGE and takes one item from the OPPONENTs inventory for 1 move.
 
@@ -39,12 +39,12 @@ Low DEFENSE, Moderate ATTACK, Moderate ACCURACY, High ITEMS (5 ITEMS)
 ** SOLDIER **
 Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
 
-- PATHFINDER
+  [PATHFINDER]
   Ability: The Way
   - PATHFINDER evades their OPPONENTs attack and becomes invincible for 1 turn.
 
 
-- CHAMPION
+  [CHAMPION]
   Ability: Victory
   - CHAMPION raises their DEFENSE and ATTACK by 50 PTS each.
 
@@ -52,11 +52,11 @@ Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
 ** MAGE ** 
 Low DEFENSE, High ATTACK, Moderate ACCURACY, No ITEMS
 
-- RIMURU
+  [RIMURU]
   Ability: Gluttony
   - RIMURU does 25 DAMAGE and permanently lowers OPPONENTs DEFENSE by 100 PTS.
 
-- MEGUMIN
+  [MEGUMIN]
   Ability: Explosion 
   - MEGUMIN casts a spell that deals 300 DAMAGE.
 
