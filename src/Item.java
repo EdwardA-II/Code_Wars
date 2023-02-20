@@ -1,5 +1,4 @@
-public class Item 
-{
+public class Item {
 // ITEM that grants x amount of HEALTH.
 
 
@@ -8,6 +7,7 @@ public class Item
 
 // ITEM that grants x amount of DAMAGE / ATTACK. 
 
+// something something getDescription, setDescription...
 
 // Other ITEMs...
 

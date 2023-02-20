@@ -38,7 +38,7 @@ public class Game {
         printClassesCharacters();
 
         // Create Characters.
-        createTanks();
+        createCharacters();
 
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
@@ -152,7 +152,7 @@ public class Game {
 
 
     // Method to create all of the TANK Characters from the Character Interface.
-    public static void createTanks()
+    public static void createCharacters()
     {
         // Create the TANKS.
         Character Atlas = new Tank();

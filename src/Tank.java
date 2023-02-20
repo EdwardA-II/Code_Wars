@@ -1,6 +1,5 @@
 
-public class Tank  implements Character
-{
+public class Tank  implements Character {
     int health = 1500;
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;

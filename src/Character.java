@@ -2,8 +2,7 @@
  * Character interface that contains a method "blueprint" for every Character.
  * 
  */
-public interface Character 
-{   
+public interface Character {   
     /**
      * Attacks the player's OPPONENT.
      * 
