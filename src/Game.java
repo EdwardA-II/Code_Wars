@@ -38,10 +38,10 @@ public class Game {
         printClassesCharacters();
 
         // Create Characters.
-        createCharacters();
+        ArrayList<Character> allCharacters = createCharacters();
 
         // Prompt for Character Selection.
-        promptForCharacter(sc);
+        Character player = promptForCharacter(sc, allCharacters);
         
         sc.close();
 
@@ -146,23 +146,50 @@ public class Game {
         fileReader.close();
     }
 
-    public static void promptForCharacter(Scanner sc)
+    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         String userInput = sc.nextLine();
         userInputValid(userInput, sc);
         System.out.println("You selected: " + "[" + userInput + "]");
+
+
+        // Assign Character to the PLAYER'S CHOICE.
+        // Iterate through Characters and assign the corresponding one.
+        for (int i = 0; i < charactersList.size(); i++) 
+        {
+            if (userInput.equals(charactersList.get(i)))
+            {
+
+            }
+        }
+
+        Character player = charactersList.get(0);;
+
+
+
         
+        return null; // Return Character.
     }
 
 
-    // Method to create all of the TANK Characters from the Character Interface.
-    public static void createCharacters()
+    /**
+     * Method to create all of the TANK Characters from the Character Interface.
+     *  
+     * */ 
+    public static ArrayList<Character> createCharacters()
     {
+        // Character ArrayList
+        ArrayList<Character> allCharacters = new ArrayList<>();
+
         // Create the TANKS.
         Character Atlas = new Tank();
         Character RonnieColeman = new Tank();
+
+        allCharacters.add(Atlas);
+        allCharacters.add(RonnieColeman);
+
 
         // Create the MARKSMEN.
 
@@ -176,9 +203,11 @@ public class Game {
         // Create the MAGES.
 
 
+
+        return allCharacters;
     }
 
-    public static void game()
+    public static void match()
     {
 
     }

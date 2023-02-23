@@ -1,11 +1,23 @@
 
 public class Tank  implements Character {
+    String name = "";
     int health = 1500;
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
     Item[] itemCapacity = new Item[2];
 
+    @Override
+    public String getName()
+    {
+        return this.name;
+    }
+
+    @Override
+    public void setName(String inputName)
+    {
+        this.name = inputName;
+    }
 
     @Override
     public int attack(int opponentHealth, int opponentDefense) 
