@@ -152,25 +152,25 @@ public class Game {
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         String userInput = sc.nextLine();
         userInputValid(userInput, sc);
-        System.out.println("You selected: " + "[" + userInput + "]");
-
 
         // Assign Character to the PLAYER'S CHOICE.
         // Iterate through Characters and assign the corresponding one.
-        for (int i = 0; i < charactersList.size(); i++) 
-        {
-            if (userInput.equals(charactersList.get(i)))
-            {
 
+        Character player = charactersList.get(0); // Placeholder
+        
+        for (int i = 0; i < charactersList.size(); i++) 
+        {   
+            Character currentCharacter = charactersList.get(i);
+            if ( userInput.equals(currentCharacter.getName()) )
+            {
+                player = charactersList.get(i);
             }
         }
 
-        Character player = charactersList.get(0);;
-
-
+        System.out.println("You selected: " + "[" + player.getName().toUpperCase() + "]");
 
         
-        return null; // Return Character.
+        return player; // Return Character.
     }
 
 
@@ -184,8 +184,8 @@ public class Game {
         ArrayList<Character> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Character Atlas = new Tank();
-        Character RonnieColeman = new Tank();
+        Character Atlas = new Tank("Atlas");
+        Character RonnieColeman = new Tank("Ronnie Coleman");
 
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);

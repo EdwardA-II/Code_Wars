@@ -7,6 +7,11 @@ public class Tank  implements Character {
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
     Item[] itemCapacity = new Item[2];
 
+    public Tank(String characterName)
+    {
+        this.name = characterName;
+    }
+
     @Override
     public String getName()
     {
@@ -17,6 +22,8 @@ public class Tank  implements Character {
     public void setName(String inputName)
     {
         this.name = inputName;
+        // Might not need this method since the Character name is set in the constructor.
+        // And it doesn't change. Hmm...
     }
 
     @Override
