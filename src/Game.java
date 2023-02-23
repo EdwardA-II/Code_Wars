@@ -41,11 +41,7 @@ public class Game {
         createCharacters();
 
         // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        userInput = sc.nextLine();
-        userInputValid(userInput, sc);
-        System.out.println("You selected: " + userInput);
-        
+        promptForCharacter(sc);
         
         sc.close();
 
@@ -150,6 +146,16 @@ public class Game {
         fileReader.close();
     }
 
+    public static void promptForCharacter(Scanner sc)
+    {
+        // Prompt for Character Selection.
+        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
+        String userInput = sc.nextLine();
+        userInputValid(userInput, sc);
+        System.out.println("You selected: " + "[" + userInput + "]");
+        
+    }
+
 
     // Method to create all of the TANK Characters from the Character Interface.
     public static void createCharacters()
@@ -169,6 +175,11 @@ public class Game {
 
         // Create the MAGES.
 
+
+    }
+
+    public static void game()
+    {
 
     }
 

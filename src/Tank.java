@@ -13,7 +13,7 @@ public class Tank  implements Character {
         // Call with the OPPONENT's current health (opponentName.getHealth)
         
         // Subtract from it and then return the remaining health.
-        opponentHealth = this.attack - (opponentHealth + opponentDefense);
+        opponentHealth = (opponentHealth + opponentDefense) - this.attack;
 
         // For special moves where the damage is done directly to the health, call this method with 
         // opponentDefense = 0?
