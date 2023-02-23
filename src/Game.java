@@ -146,6 +146,13 @@ public class Game {
         fileReader.close();
     }
 
+    /**
+     * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
+     * 
+     * @param sc - Scanner that reads the input from the user.
+     * @param charactersList - ArrayList that holds all the Characters.
+     * @return player - Character that the player chose.
+     */
     public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
     {
         // Prompt for Character Selection.
@@ -153,9 +160,7 @@ public class Game {
         String userInput = sc.nextLine();
         userInputValid(userInput, sc);
 
-        // Assign Character to the PLAYER'S CHOICE.
         // Iterate through Characters and assign the corresponding one.
-
         Character player = charactersList.get(0); // Placeholder
         
         for (int i = 0; i < charactersList.size(); i++) 
