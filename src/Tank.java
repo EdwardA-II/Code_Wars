@@ -5,7 +5,7 @@ public class Tank  implements Character {
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
-    Item[] itemCapacity = new Item[2];
+    Item[] itemCapacity = new Item[2]; // May need to change to an ArrayList since it might change.
 
     public Tank(String characterName)
     {
