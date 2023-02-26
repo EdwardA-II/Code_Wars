@@ -1,11 +1,30 @@
 
 public class Tank  implements Character {
+    String name = "";
     int health = 1500;
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
-    Item[] itemCapacity = new Item[2];
+    Item[] itemCapacity = new Item[2]; // May need to change to an ArrayList since it might change.
 
+    public Tank(String characterName)
+    {
+        this.name = characterName;
+    }
+
+    @Override
+    public String getName()
+    {
+        return this.name;
+    }
+
+    @Override
+    public void setName(String inputName)
+    {
+        this.name = inputName;
+        // Might not need this method since the Character name is set in the constructor.
+        // And it doesn't change. Hmm...
+    }
 
     @Override
     public int attack(int opponentHealth, int opponentDefense) 
@@ -13,7 +32,7 @@ public class Tank  implements Character {
         // Call with the OPPONENT's current health (opponentName.getHealth)
         
         // Subtract from it and then return the remaining health.
-        opponentHealth = this.attack - (opponentHealth + opponentDefense);
+        opponentHealth = (opponentHealth + opponentDefense) - this.attack;
 
         // For special moves where the damage is done directly to the health, call this method with 
         // opponentDefense = 0?

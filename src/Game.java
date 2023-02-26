@@ -38,14 +38,10 @@ public class Game {
         printClassesCharacters();
 
         // Create Characters.
-        createTanks();
+        ArrayList<Character> allCharacters = createCharacters();
 
         // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        userInput = sc.nextLine();
-        userInputValid(userInput, sc);
-        System.out.println("You selected: " + userInput);
-        
+        Character player = promptForCharacter(sc, allCharacters);
         
         sc.close();
 
@@ -150,14 +146,55 @@ public class Game {
         fileReader.close();
     }
 
-
-    // Method to create all of the TANK Characters from the Character Interface.
-    public static void createTanks()
+    /**
+     * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
+     * 
+     * @param sc - Scanner that reads the input from the user.
+     * @param charactersList - ArrayList that holds all the Characters.
+     * @return player - Character that the player chose.
+     */
+    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
     {
-        // Create the TANKS.
-        Character Atlas = new Tank();
-        Character RonnieColeman = new Tank();
+        // Prompt for Character Selection.
+        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
+        String userInput = sc.nextLine();
+        userInputValid(userInput, sc);
+
+        // Iterate through Characters and assign the corresponding one.
+        Character player = charactersList.get(0); // Placeholder
         
+        for (int i = 0; i < charactersList.size(); i++) 
+        {   
+            Character currentCharacter = charactersList.get(i);
+            if ( userInput.equals(currentCharacter.getName()) )
+            {
+                player = charactersList.get(i);
+            }
+        }
+
+        System.out.println("You selected: " + "[" + player.getName().toUpperCase() + "]");
+
+        
+        return player; // Return Character.
+    }
+
+
+    /**
+     * Method to create all of the TANK Characters from the Character Interface.
+     *  
+     * */ 
+    public static ArrayList<Character> createCharacters()
+    {
+        // Character ArrayList
+        ArrayList<Character> allCharacters = new ArrayList<>();
+
+        // Create the TANKS.
+        Character Atlas = new Tank("Atlas");
+        Character RonnieColeman = new Tank("Ronnie Coleman");
+
+        allCharacters.add(Atlas);
+        allCharacters.add(RonnieColeman);
+
 
         // Create the MARKSMEN.
 
@@ -170,6 +207,13 @@ public class Game {
 
         // Create the MAGES.
 
+
+
+        return allCharacters;
+    }
+
+    public static void match()
+    {
 
     }
 

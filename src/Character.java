@@ -2,7 +2,23 @@
  * Character interface that contains a method "blueprint" for every Character.
  * 
  */
-public interface Character {   
+public interface Character { 
+    
+    /**
+     * Gets the name of the Character.
+     * 
+     * @return The Character's name.
+     */
+    public String getName();
+
+    /**
+     * Sets the name of the Character.
+     * 
+     * @param inputName - The name of Character that the PLAYER wants to use. 
+     * @return The Character's name.
+     */
+    public void setName(String inputName);
+    
     /**
      * Attacks the player's OPPONENT.
      * 
