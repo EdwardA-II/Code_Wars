@@ -1,7 +1,7 @@
 ***************************** CLASSES + CHARACTER INFORMATION *****************************
 
 ** TANKS **
-High DEFENSE, Low ACCURACY, Modertate ATTACK, Moderate ITEMS
+High DEFENSE, Low ACCURACY, Moderate ATTACK, Moderate ITEMS
 
   [ATLAS]
   Ability: Endure
