@@ -157,8 +157,8 @@ public class Game {
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        String userInput = sc.nextLine();
-        userInputValid(userInput, sc);
+        String userSelect = sc.nextLine();
+        userInputValid(userSelect, sc);
 
         // Iterate through Characters and assign the corresponding one.
         Character player = charactersList.get(0); // Placeholder
@@ -166,7 +166,7 @@ public class Game {
         for (int i = 0; i < charactersList.size(); i++) 
         {   
             Character currentCharacter = charactersList.get(i);
-            if ( userInput.equals(currentCharacter.getName()) )
+            if ( userSelect.equals(currentCharacter.getName()) )
             {
                 player = charactersList.get(i);
             }
