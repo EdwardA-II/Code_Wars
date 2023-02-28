@@ -45,7 +45,7 @@ Moderate DEFENSE, ATTACK, ACCURACY, ITEMS
 
 
   [CHAMPION]
-  Ability: Victory
+  Ability: Valor
   - CHAMPION raises their DEFENSE and ATTACK by 50 PTS each.
 
 
