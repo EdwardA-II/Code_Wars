@@ -51,6 +51,46 @@ public interface Character {
      */
     public boolean isDefeated();
 
-    // ...some other methods
+    /**
+     * Returns the current health of the Character.
+     * @return - Current health
+     */
+    public int getHealth();
+
+    /**
+     * Changes the health to the specified value.
+     * @param newHealth - Value to set the Character's health to.
+     */
+    public void setHealth(int newHealth);
+
+    /**
+     * @return the defense
+     */
+    public int getDefense();
+
+    /**
+     * @param defense the defense to set
+     */
+    public void setDefense(int defense);
+    
+    /**
+     * @return the accuracy
+     */
+    public int getAccuracy();
+
+    /**
+     * @param accuracy the accuracy to set
+     */
+    public void setAccuracy(int accuracy);
+
+    /**
+     * @return the itemCapacity
+     */
+    public Item[] getItemCapacity();
+
+    /**
+     * @param itemCapacity the itemCapacity to set
+     */
+    public void setItemCapacity(Item[] itemCapacity);
     
 }
