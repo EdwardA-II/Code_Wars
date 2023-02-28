@@ -169,6 +169,7 @@ public class Game {
         for (int i = 0; i < charactersList.size(); i++) 
         {   
             Character currentCharacter = charactersList.get(i);
+
             if ( userSelect.equals(currentCharacter.getName()) )
             {
                 player = charactersList.get(i);
@@ -185,7 +186,7 @@ public class Game {
     /**
      * Method to create all of the TANK Characters from the Character Interface.
      *  
-     * */ 
+     */ 
     public static ArrayList<Character> createCharacters()
     {
         // Character ArrayList
@@ -194,9 +195,13 @@ public class Game {
         // Create the TANKS.
         Character Atlas = new Tank("Atlas");
         Character RonnieColeman = new Tank("Ronnie Coleman");
-
+        
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
+
+        // Test methods... DELETE LATER AND MAKE INTO JUNIT TEST.
+        // Atlas.takeDamage(100);
+        // System.out.println(Atlas.getHealth());
 
 
         // Create the MARKSMEN.
