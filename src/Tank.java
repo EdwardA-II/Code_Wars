@@ -12,12 +12,23 @@ public class Tank  implements Character {
         this.name = characterName;
     }
 
+    /**
+     * Gets the name of the Character.
+     * 
+     * @return The Character's name.
+     */
     @Override
     public String getName()
     {
         return this.name;
     }
 
+    /**
+     * Sets the name of the Character.
+     * 
+     * @param inputName - The name of Character that the PLAYER wants to use. 
+     * @return The Character's name.
+     */
     @Override
     public void setName(String inputName)
     {
@@ -26,6 +37,14 @@ public class Tank  implements Character {
         // And it doesn't change. Hmm...
     }
 
+    /**
+     * Attacks the player's OPPONENT.
+     * 
+     * @param opponentHealth - the OPPONENT's HEALTH.
+     * @param opponentDefense - the OPPONENT'S DEFENSE.
+     * 
+     * @return The OPPONENT's health after attacking their HEALTH and DEFENSE. 
+     */
     @Override
     public int attack(int opponentHealth, int opponentDefense) 
     {
@@ -41,21 +60,35 @@ public class Tank  implements Character {
         
     }
 
+    /**
+     * Attacks the player's OPPONENT with the Character's Special Ability.
+     * 
+     */
     @Override
     public void specialAbility() 
     {
         // Hmm... how do I implement this...?
         
     }
-
+    
+    /**
+     * Takes in DAMAGE from the OPPONENT.
+     * 
+     * @param damageTaken - the DAMAGE done by the OPPONENT.
+     * 
+     * @return The PLAYER's health their OPPONENT's attack. 
+     */
     @Override
     public void takeDamage(int damageTaken)
     {
         this.health = (this.health + defense) - damageTaken;
     }
 
-    
-
+    /**
+     * Determines if the PLAYER is defeated or not.
+     * 
+     * @return isDefeated - if the PLAYER's health <= 0, PLAYER is defeated.
+     */
     @Override
     public boolean isDefeated() {
         boolean defeated = false;
@@ -70,6 +103,7 @@ public class Tank  implements Character {
     /**
      * @return the health
      */
+    @Override
     public int getHealth() 
     {
         return this.health;
@@ -78,14 +112,16 @@ public class Tank  implements Character {
     /**
      * @param health the defense to set
      */
-    public void setHealth(int health) 
+    @Override
+    public void setHealth(int newHealth) 
     {
-        this.health = health;
+        this.health = newHealth;
     }
 
     /**
      * @return the defense
      */
+    @Override
     public int getDefense() 
     {
         return this.defense;
@@ -94,6 +130,7 @@ public class Tank  implements Character {
     /**
      * @param defense the defense to set
      */
+    @Override
     public void setDefense(int defense) 
     {
         this.defense = defense;
@@ -102,6 +139,7 @@ public class Tank  implements Character {
     /**
      * @return the accuracy
      */
+    @Override
     public int getAccuracy() 
     {
         return this.accuracy;
@@ -110,6 +148,7 @@ public class Tank  implements Character {
     /**
      * @param accuracy the accuracy to set
      */
+    @Override
     public void setAccuracy(int accuracy) 
     {
         this.accuracy = accuracy;
@@ -118,6 +157,7 @@ public class Tank  implements Character {
     /**
      * @return the itemCapacity
      */
+    @Override
     public Item[] getItemCapacity() 
     {
         return this.itemCapacity;
@@ -126,6 +166,7 @@ public class Tank  implements Character {
     /**
      * @param itemCapacity the itemCapacity to set
      */
+    @Override
     public void setItemCapacity(Item[] itemCapacity) 
     {
         this.itemCapacity = itemCapacity;
