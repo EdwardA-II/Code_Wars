@@ -87,10 +87,11 @@ public class Game {
     }
 
     /**
+     * Plays in-game music depending on what's happening.
+     * 
      * @throws IOException
      * @throws UnsupportedAudioFileException
      * @throws LineUnavailableException
-     * 
      * 
      */
     public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException
