@@ -38,69 +38,6 @@ public class Tank  implements Character {
     }
 
     /**
-     * Attacks the player's OPPONENT.
-     * 
-     * @param opponentHealth - the OPPONENT's HEALTH.
-     * @param opponentDefense - the OPPONENT'S DEFENSE.
-     * 
-     * @return The OPPONENT's health after attacking their HEALTH and DEFENSE. 
-     */
-    @Override
-    public int attack(int opponentHealth, int opponentDefense) 
-    {
-        // Call with the OPPONENT's current health (opponentName.getHealth)
-        
-        // Subtract from it and then return the remaining health.
-        opponentHealth = (opponentHealth + opponentDefense) - this.attack;
-
-        // For special moves where the damage is done directly to the health, call this method with 
-        // opponentDefense = 0?
-
-        return opponentHealth;
-        
-    }
-
-    /**
-     * Attacks the player's OPPONENT with the Character's Special Ability.
-     * 
-     */
-    @Override
-    public void specialAbility() 
-    {
-        // Hmm... how do I implement this...?
-        
-    }
-    
-    /**
-     * Takes in DAMAGE from the OPPONENT.
-     * 
-     * @param damageTaken - the DAMAGE done by the OPPONENT.
-     * 
-     * @return The PLAYER's health their OPPONENT's attack. 
-     */
-    @Override
-    public void takeDamage(int damageTaken)
-    {
-        this.health = (this.health + defense) - damageTaken;
-    }
-
-    /**
-     * Determines if the PLAYER is defeated or not.
-     * 
-     * @return isDefeated - if the PLAYER's health <= 0, PLAYER is defeated.
-     */
-    @Override
-    public boolean isDefeated() {
-        boolean defeated = false;
-
-        if (this.health <= 0) {
-            defeated = true;
-        }
-
-        return defeated;
-    }
-
-    /**
      * @return the health
      */
     @Override
@@ -172,5 +109,67 @@ public class Tank  implements Character {
         this.itemCapacity = itemCapacity;
     }
     
-    
+    /**
+     * Takes in DAMAGE from the OPPONENT.
+     * 
+     * @param damageTaken - the DAMAGE done by the OPPONENT.
+     * 
+     * @return The PLAYER's health their OPPONENT's attack. 
+     */
+    @Override
+    public void takeDamage(int damageTaken)
+    {
+        this.health = (this.health + defense) - damageTaken;
+    }
+
+    /**
+     * Attacks the player's OPPONENT.
+     * 
+     * @param opponentHealth - the OPPONENT's HEALTH.
+     * @param opponentDefense - the OPPONENT'S DEFENSE.
+     * 
+     * @return The OPPONENT's health after attacking their HEALTH and DEFENSE. 
+     */
+    @Override
+    public int attack(int opponentHealth, int opponentDefense) 
+    {
+        // Call with the OPPONENT's current health (opponentName.getHealth)
+        
+        // Subtract from it and then return the remaining health.
+        opponentHealth = (opponentHealth + opponentDefense) - this.attack;
+
+        // For special moves where the damage is done directly to the health, call this method with 
+        // opponentDefense = 0?
+
+        return opponentHealth;
+        
+    }
+
+    /**
+     * Attacks the player's OPPONENT with the Character's Special Ability.
+     * 
+     */
+    @Override
+    public void specialAbility() 
+    {
+        // Hmm... how do I implement this...?
+        
+    }
+
+    /**
+     * Determines if the PLAYER is defeated or not.
+     * 
+     * @return isDefeated - if the PLAYER's health <= 0, PLAYER is defeated.
+     */
+    @Override
+    public boolean isDefeated() {
+        boolean defeated = false;
+
+        if (this.health <= 0) {
+            defeated = true;
+        }
+
+        return defeated;
+    }
+
 }
