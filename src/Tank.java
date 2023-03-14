@@ -147,17 +147,6 @@ public class Tank  implements Character {
     }
 
     /**
-     * Attacks the player's OPPONENT with the Character's Special Ability.
-     * 
-     */
-    @Override
-    public void specialAbility() 
-    {
-        // Hmm... how do I implement this...?
-        
-    }
-
-    /**
      * Determines if the PLAYER is defeated or not.
      * 
      * @return isDefeated - if the PLAYER's health <= 0, PLAYER is defeated.
@@ -172,5 +161,17 @@ public class Tank  implements Character {
 
         return defeated;
     }
+
+    /**
+     * Attacks the player's OPPONENT with the Character's Special Ability.
+     * 
+     */
+    @Override
+    public void specialAbility() 
+    {
+        // Hmm... how do I implement this...?
+        
+    }
+
 
 }

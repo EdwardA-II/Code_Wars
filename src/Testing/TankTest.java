@@ -1,8 +1,8 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import org.junit.Assert;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-// import static org.junit.
 
 public class TankTest {
     
@@ -23,5 +23,42 @@ public class TankTest {
         assertEquals(1600, oppHealth);
 
     }
+
+    @Test
+    public void isDefeated_healthIs0_ShouldBeTrue()
+    {
+        Character chara = new Tank("Test");
+        chara.setHealth(0);
+        String falseMessage = "Should be true because health = 0";
+        assertTrue(falseMessage, chara.isDefeated());
+    }
+
+    @Test
+    public void isDefeated_healthIsNegative_ShouldBeTrue()
+    {
+        Character chara = new Tank("Test");
+        chara.setHealth(-15);
+        String falseMessage = "Should be true because health < 0";
+        assertTrue(falseMessage, chara.isDefeated());
+    }
+
+    @Test
+    public void isDefeated_healthIs100_ShouldBeFalse()
+    {
+        Character chara = new Tank("Test");
+        chara.setHealth(100);
+        String falseMessage = "Should be false because health > 0";
+        assertFalse(falseMessage, chara.isDefeated());
+    }
+
+    // Placeholder for the specialAbility test method.
+    // @Test
+    // public void specialAbility_someCondition_someExpectedResult()
+    // {
+    //     Character chara = new Tank("Test");
+    //     chara.specialAbility();
+    //     String falseMessage = "Something, something...";
+    //     assertEqual(falseMessage, chara.isDefeated());
+    // }
 
 }
