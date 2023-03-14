@@ -101,13 +101,13 @@ public class Tank  implements Character {
     }
 
     /**
-     * @param itemCapacity the itemCapacity to set
+     * @param itemCapacity the itemCapacity to the new total number of items the character can carry (capacity).
      */
     @Override
     public void setItemCapacity(int newItemCapacity) 
     {
-        Item[] newItemSlots = new Item[newItemCapacity];
-        this.itemSlots = newItemSlots;
+        Item[] newItemSlots = new Item[newItemCapacity]; // Create a new array based on the new capacity.
+        this.itemSlots = newItemSlots; // Assign the previous array to this new one.
     }
     
     /**
