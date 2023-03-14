@@ -91,6 +91,6 @@ public interface Character {
     /**
      * @param itemCapacity the itemCapacity to set
      */
-    public void setItemCapacity(Item[] itemCapacity);
+    public void setItemCapacity(int itemCapacity);
     
 }

@@ -5,7 +5,7 @@ public class Tank  implements Character {
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
-    Item[] itemCapacity = new Item[2]; // May need to change to an ArrayList since it might change.
+    Item[] itemSlots = new Item[2]; // May need to change to an ArrayList since it might change.
 
     public Tank(String characterName)
     {
@@ -97,16 +97,17 @@ public class Tank  implements Character {
     @Override
     public Item[] getItemCapacity() 
     {
-        return this.itemCapacity;
+        return this.itemSlots;
     }
 
     /**
      * @param itemCapacity the itemCapacity to set
      */
     @Override
-    public void setItemCapacity(Item[] itemCapacity) 
+    public void setItemCapacity(int newItemCapacity) 
     {
-        this.itemCapacity = itemCapacity;
+        Item[] newItemSlots = new Item[newItemCapacity];
+        this.itemSlots = newItemSlots;
     }
     
     /**
