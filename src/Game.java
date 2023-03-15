@@ -200,11 +200,6 @@ public class Game {
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
 
-        // Test methods... DELETE LATER AND MAKE INTO JUNIT TEST.
-        // Atlas.takeDamage(100);
-        // System.out.println(Atlas.getHealth());
-
-
         // Create the MARKSMEN.
 
 
