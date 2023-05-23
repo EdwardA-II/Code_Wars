@@ -43,9 +43,26 @@ public class Game {
         // Create Characters.
         ArrayList<Character> allCharacters = createCharacters();
 
-        // Prompt for Character Selection.
-        Character player = promptForCharacter(sc, allCharacters);
+        // Prompt for if they're playing against CPU (single-player) or with two players.
+        System.out.println("PLEASE SELECT: \"SINGLE-PLAYER\" or \"MULTI-PLAYER\"");
+        userInputValid(userInput, sc);
 
+        String gameMode = "";
+        if(userInput.equals("SINGLE-PLAYER"))
+        {
+            gameMode = "SINGLE-PLAYER";
+        }
+
+        else if(userInput.equals("MULTI-PLAYER"))
+        {
+            gameMode = "MULTI-PLAYER";
+        }
+
+
+        // Prompt for Character Selection.
+        Character player = promptForCharacter(sc, allCharacters, gameMode);
+
+        // Begin the match!
         match(player);
         
         sc.close();
@@ -68,6 +85,8 @@ public class Game {
         // Menu Options
         menuInputs.add("START");
         menuInputs.add("QUIT");
+        menuInputs.add("SINGLE-PLAYER");
+        menuInputs.add("MULTI-PLAYER");
 
         // TANK Options
         characterInputs.add("ATLAS");
@@ -159,7 +178,7 @@ public class Game {
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
      */
-    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
+    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList, String gamemode)
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
@@ -167,6 +186,9 @@ public class Game {
         userInputValid(userSelect, sc);
 
         // Iterate through Characters and assign the corresponding one.
+
+        // NOTE: Make this a separate method and name it "assignCharacters"? Call it to select the second player's Character?
+
         Character player = charactersList.get(0); // Placeholder
         
         for (int i = 0; i < charactersList.size(); i++) 
@@ -181,6 +203,7 @@ public class Game {
 
         System.out.println("You selected: " + "[ " + player.getName().toUpperCase() + " ]");
         System.out.println();
+        
         
         return player; // Return Character.
     }
