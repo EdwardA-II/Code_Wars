@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         //Play the Main Menu music.
-        try 
-        {
-            playMusic();
-        } 
-        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            // System.out.println("Audio File NOT FOUND!");
+        // try 
+        // {
+        //     playMusic();
+        // } 
+        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        //     // System.out.println("Audio File NOT FOUND!");
 
-            e.printStackTrace(); //Tell me which exact error it throws.
-        }
+        //     e.printStackTrace(); //Tell me which exact error it throws.
+        // }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
