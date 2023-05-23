@@ -63,7 +63,7 @@ public class Game {
         Character player = promptForCharacter(sc, allCharacters, gameMode);
 
         // Begin the match!
-        match(player);
+        singlePlayerMatch(player); // Update to include multi-player matches as well.
         
         sc.close();
 
@@ -187,8 +187,6 @@ public class Game {
 
         // Iterate through Characters and assign the corresponding one.
 
-        // NOTE: Make this a separate method and name it "assignCharacters"? Call it to select the second player's Character?
-
         Character player = charactersList.get(0); // Placeholder
         
         for (int i = 0; i < charactersList.size(); i++) 
@@ -199,6 +197,7 @@ public class Game {
             {
                 player = charactersList.get(i);
             }
+
         }
 
         System.out.println("You selected: " + "[ " + player.getName().toUpperCase() + " ]");
@@ -246,19 +245,21 @@ public class Game {
      * This method displays the match between players.
      * @param player - The Character that the Player selected.
      */
-    public static void match(Character player)
+    public static void singlePlayerMatch(Character player)
     {
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
         // Check whose turn it is and alternate. 
         boolean player1Turn = false;
-        boolean player2Turn = false; // Note: Player 2 is either CPU or the second Player.
+        boolean cpuTurn = false;
 
-        if (player1Turn == true) {
-            player2Turn = false;
+        if (player1Turn == true) 
+        {
+            cpuTurn = false;
         }
 
-        else if (player2Turn == true) {
+        else if (cpuTurn == true) 
+        {
             player1Turn = false;
         }
 
