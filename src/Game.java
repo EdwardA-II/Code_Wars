@@ -9,19 +9,19 @@ public class Game {
 
     public static void main(String[] args) throws FileNotFoundException
     {
-        // UNCOMMENT THIS METHOD TO PLAY MUSIC.
+        // UNCOMMENT THIS BLOCK TO PLAY MUSIC.
         // Blocked off to avoid music playing everytime I run the code.
         
-        // //Play the Main Menu music.
-        // try 
-        // {
-        //     playMusic();
-        // } 
-        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-        //     // System.out.println("Audio File NOT FOUND!");
+        //Play the Main Menu music.
+        try 
+        {
+            playMusic();
+        } 
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
 
-        //     e.printStackTrace(); //Tell me which exact error it throws.
-        // }
+            e.printStackTrace(); //Tell me which exact error it throws.
+        }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -45,6 +45,8 @@ public class Game {
 
         // Prompt for Character Selection.
         Character player = promptForCharacter(sc, allCharacters);
+
+        match(player);
         
         sc.close();
 
@@ -178,7 +180,7 @@ public class Game {
         }
 
         System.out.println("You selected: " + "[ " + player.getName().toUpperCase() + " ]");
-
+        System.out.println();
         
         return player; // Return Character.
     }
@@ -216,10 +218,29 @@ public class Game {
         return allCharacters;
     }
 
-    public static void match()
+    
+    /** 
+     * This method displays the match between players.
+     * @param player - The Character that the Player selected.
+     */
+    public static void match(Character player)
     {
+        System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
+
+        // Check whose turn it is and alternate. 
+        boolean player1Turn = false;
+        boolean player2Turn = false; // Note: Player 2 is either CPU or the second Player.
+
+        if (player1Turn == true) {
+            player2Turn = false;
+        }
+
+        else if (player2Turn == true) {
+            player1Turn = false;
+        }
 
     }
+
 
 
 
