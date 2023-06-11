@@ -45,6 +45,7 @@ public class Game {
 
         // Prompt for if they're playing against CPU (single-player) or with two players.
         System.out.println("PLEASE SELECT: \"SINGLE-PLAYER\" or \"MULTI-PLAYER\"");
+        System.out.println();
         userInputValid(userInput, sc);
 
         String gameMode = "";
@@ -268,10 +269,18 @@ public class Game {
             player1Turn = false;
         }
 
-        System.out.println("PLAYER please make your move: ");
+        System.out.println();
+        System.out.println("PLAYER 1 please make your move: ");
         System.out.println("Your options are: ATTACK, USE ITEM, ....");
+        
+        Scanner action = new Scanner(System.in);
+        String player1Action = action.nextLine();
+        userInputValid(player1Action, action);
+
+        // Do something like player1Character uses blank attack...""
 
 
+    
 
     }
 
