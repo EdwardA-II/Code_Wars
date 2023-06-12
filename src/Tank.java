@@ -164,9 +164,8 @@ public class Tank  implements Character {
 
     /**
      * Provides us with the Character's current attack value
-     * @param attack - The Character's current attack value.
      */
-    public int getAttack(int attack)
+    public int getAttack()
     {
         return this.attack;
     }

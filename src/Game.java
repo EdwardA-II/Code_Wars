@@ -43,16 +43,14 @@ public class Game {
         // Create Characters.
         ArrayList<Character> allCharacters = createCharacters();
 
-        // Prompt for if they're playing against CPU (single-player) or with two players.
-        System.out.println("PLEASE SELECT: \"SINGLE-PLAYER\" or \"MULTI-PLAYER\"");
-        System.out.println();
-        userInputValid(userInput, sc);
-
         // Prompt for Character Selection.
-        Character player = promptForCharacter(sc, allCharacters);
+        System.out.println("*PLAYER 1*");
+        Character player1 = promptForCharacter(sc, allCharacters);
+        System.out.println("*PLAYER 2*");
+        Character player2 = promptForCharacter(sc, allCharacters);
 
         // Begin the match!
-        singlePlayerMatch(player); // Update to include multi-player matches as well.
+        playerVersusPlayerMatch(player1, player2); // Update to include multi-player matches as well.
         
         sc.close();
 
@@ -83,6 +81,7 @@ public class Game {
 
         // Actions
         actionInputs.add("ATTACK");
+        actionInputs.add("SPECIAL MOVE");
         // ("Use" + x) item...
 
 
@@ -237,40 +236,53 @@ public class Game {
     
     /** 
      * This method displays the match between players.
-     * @param player - The Character that the Player selected.
+     * @param player1 - The Character that Player 1 selected.
+     * @param player2 - The Character that Player 2 selected.
+     * 
      */
-    public static void singlePlayerMatch(Character player)
+    public static void playerVersusPlayerMatch(Character player1, Character player2)
     {
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
+        // Probably turn this into another method that checks whose turn it is.
         // Check whose turn it is and alternate. 
         boolean player1Turn = false;
-        boolean cpuTurn = false;
+        boolean player2Turn = false;
 
         if (player1Turn == true) 
         {
-            cpuTurn = false;
+            player2Turn = false;
         }
 
-        else if (cpuTurn == true) 
+        else if (player2Turn == true) 
         {
             player1Turn = false;
         }
 
+        
+
         System.out.println();
+        System.out.println("Your options are: ATTACK, USE ITEM, SPECIAL MOVE");
         System.out.println("PLAYER 1 please make your move: ");
-        System.out.println("Your options are: ATTACK, USE ITEM, ....");
+
         
         Scanner action = new Scanner(System.in);
         String player1Action = action.nextLine();
         userInputValid(player1Action, action);
         System.out.println();
 
-        // Do something like player1Character uses blank attack...
-
+        // Player ATTACKS scenario...
         if (player1Action.equals("ATTACK")) 
         {
-            System.out.println( player.getName() + " attacks for " + player.getAttack()); 
+            System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
+            + player1.getAttack() + " DAMAGE!"); 
+           
+            player1.attack(player2.getHealth(), player2.getDefense());
+            // player2.setHealth( player2.takeDamage() );
+            player2.takeDamage(player1.getAttack());
+
+            System.out.println(player2.getHealth());
+            System.out.println(player2.getDefense());
 
         }
 
