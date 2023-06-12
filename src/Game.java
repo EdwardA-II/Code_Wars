@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         // Play the Main Menu music.
-        try 
-        {
-            playMusic();
-        } 
-        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            // System.out.println("Audio File NOT FOUND!");
+        // try 
+        // {
+        //     playMusic();
+        // } 
+        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        //     // System.out.println("Audio File NOT FOUND!");
 
-            e.printStackTrace(); //Tell me which exact error it throws.
-        }
+        //     e.printStackTrace(); //Tell me which exact error it throws.
+        // }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -48,20 +48,8 @@ public class Game {
         System.out.println();
         userInputValid(userInput, sc);
 
-        String gameMode = "";
-        if(userInput.equals("SINGLE-PLAYER"))
-        {
-            gameMode = "SINGLE-PLAYER";
-        }
-
-        else if(userInput.equals("MULTI-PLAYER"))
-        {
-            gameMode = "MULTI-PLAYER";
-        }
-
-
         // Prompt for Character Selection.
-        Character player = promptForCharacter(sc, allCharacters, gameMode);
+        Character player = promptForCharacter(sc, allCharacters);
 
         // Begin the match!
         singlePlayerMatch(player); // Update to include multi-player matches as well.
@@ -179,7 +167,7 @@ public class Game {
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
      */
-    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList, String gamemode)
+    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
@@ -201,7 +189,7 @@ public class Game {
 
         }
 
-        System.out.println("You selected: " + "[ " + player.getName().toUpperCase() + " ]");
+        System.out.println("You selected: " + "[ " + player.getName() + " ]");
         System.out.println();
 
         
@@ -219,8 +207,8 @@ public class Game {
         ArrayList<Character> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Character Atlas = new Tank("Atlas");
-        Character RonnieColeman = new Tank("Ronnie Coleman");
+        Character Atlas = new Tank("ATLAS");
+        Character RonnieColeman = new Tank("RONNIE COLEMAN");
         
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
@@ -276,9 +264,15 @@ public class Game {
         Scanner action = new Scanner(System.in);
         String player1Action = action.nextLine();
         userInputValid(player1Action, action);
+        System.out.println();
 
-        // Do something like player1Character uses blank attack...""
+        // Do something like player1Character uses blank attack...
 
+        if (player1Action.equals("ATTACK")) 
+        {
+            System.out.println( player.getName() + " attacks for "); 
+
+        }
 
     
 
