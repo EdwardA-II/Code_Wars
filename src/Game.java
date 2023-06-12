@@ -270,7 +270,7 @@ public class Game {
 
         if (player1Action.equals("ATTACK")) 
         {
-            System.out.println( player.getName() + " attacks for "); 
+            System.out.println( player.getName() + " attacks for " + player.getAttack()); 
 
         }
 

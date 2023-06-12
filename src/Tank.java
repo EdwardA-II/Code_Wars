@@ -178,7 +178,7 @@ public class Tank  implements Character {
      */
     public void setAttack(int newAttack)
     {
-        this.attack = newAttack
+        this.attack = newAttack;
     }
 
 
