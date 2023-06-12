@@ -163,6 +163,26 @@ public class Tank  implements Character {
     }
 
     /**
+     * Provides us with the Character's current attack value
+     * @param attack - The Character's current attack value.
+     */
+    public int getAttack(int attack)
+    {
+        return this.attack;
+    }
+
+    /**
+     * Changes the Character's attack value
+     * Useful for when other Characters lower or alter the Character's attack power.
+     * @param attack - The Character's attack value.
+     */
+    public void setAttack(int newAttack)
+    {
+        this.attack = newAttack
+    }
+
+
+    /**
      * Attacks the player's OPPONENT with the Character's Special Ability.
      * 
      */
