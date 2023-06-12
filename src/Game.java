@@ -260,10 +260,9 @@ public class Game {
         }
 
         
-
         System.out.println();
         System.out.println("Your options are: ATTACK, USE ITEM, SPECIAL MOVE");
-        System.out.println("PLAYER 1 please make your move: ");
+        System.out.print("PLAYER 1 please make your move: ");
 
         
         Scanner action = new Scanner(System.in);
@@ -281,8 +280,9 @@ public class Game {
             // player2.setHealth( player2.takeDamage() );
             player2.takeDamage(player1.getAttack());
 
-            System.out.println(player2.getHealth());
-            System.out.println(player2.getDefense());
+            // Testing if everything worked like how it should.
+            // System.out.println(player2.getHealth()); // Should be 2050
+            // System.out.println(player2.getDefense()); // Should be 750
 
         }
 
