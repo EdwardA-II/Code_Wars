@@ -109,7 +109,7 @@ public class Game {
         // Pass in a "String status" parameter that tells the method which one to play and stop.
 
         // Create an Audio File object and read from it.
-        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots.
+        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots (..).
         Scanner musicScanner = new Scanner(System.in);
 
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
