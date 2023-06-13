@@ -274,7 +274,7 @@ public class Game {
         if (player1Action.equals("ATTACK")) 
         {
             System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
-            + player1.getAttack() + " DAMAGE!"); 
+            + player1.getAttack() + " DAMAGE!");
            
             player1.attack(player2.getHealth(), player2.getDefense());
             // player2.setHealth( player2.takeDamage() );
