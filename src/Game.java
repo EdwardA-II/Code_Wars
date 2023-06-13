@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         // Play the Main Menu music.
-        // try 
-        // {
-        //     playMusic();
-        // } 
-        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-        //     // System.out.println("Audio File NOT FOUND!");
+        try 
+        {
+            playMusic();
+        } 
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
 
-        //     e.printStackTrace(); //Tell me which exact error it throws.
-        // }
+            e.printStackTrace(); //Tell me which exact error it throws.
+        }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -109,7 +109,7 @@ public class Game {
         // Pass in a "String status" parameter that tells the method which one to play and stop.
 
         // Create an Audio File object and read from it.
-        File mainMenu = new File("../Game Music/Nightshade - AdhesiveWombat.wav");
+        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots.
         Scanner musicScanner = new Scanner(System.in);
 
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
@@ -128,7 +128,7 @@ public class Game {
     public static void printRulesMechanics() throws FileNotFoundException
     {
         // Create a File object to hold the Rules + Mechanics file. 
-        File rulesMechs = new File("../Rules + Mechanics.txt");
+        File rulesMechs = new File("Code_Combat/Rules + Mechanics.txt");
 		Scanner textReader = new Scanner(rulesMechs);
 		
 		// Open the file and print each line until done.
@@ -147,7 +147,7 @@ public class Game {
     public static void printClassesCharacters() throws FileNotFoundException
     {
         // Create a File object to hold the Rules + Mechanics file. 
-        File characterInfo = new File("../Classes + Character Information.txt");
+        File characterInfo = new File("Code_Combat/Classes + Character Information.txt");
 		Scanner fileReader = new Scanner(characterInfo);
 		
 		// Open the file and print each line until done.
