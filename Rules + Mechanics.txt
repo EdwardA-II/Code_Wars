@@ -8,7 +8,7 @@
 
 4. You can pick one Character and choose from a variety of items that have various effects.
 
-5. All Characters have 1000 HEALTH.
+5. All Characters have 1500 HEALTH.
 
 6. YOU CAN ATTACK or use and ITEM during your move.
 
