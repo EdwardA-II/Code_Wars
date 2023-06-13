@@ -277,7 +277,6 @@ public class Game {
             + player1.getAttack() + " DAMAGE!");
            
             player1.attack(player2.getHealth(), player2.getDefense());
-            // player2.setHealth( player2.takeDamage() );
             player2.takeDamage(player1.getAttack());
 
             // Testing if everything worked like how it should.
