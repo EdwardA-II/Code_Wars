@@ -276,8 +276,15 @@ public class Game {
             System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
             + player1.getAttack() + " DAMAGE!"); 
            
-            player1.attack(player2.getHealth(), player2.getDefense());
-            player2.takeDamage(player1.getAttack());
+            // player1.attack(player2.getHealth(), player2.getDefense());
+            // player2.takeDamage(player1.getAttack());
+        
+            int player2Health = player2.getHealth();
+            int player2Defense = player2.getDefense();
+            int player1Attack = player1.getAttack();
+
+            player1.attack(player2Health, player2Defense);
+            player2.takeDamage(player1Attack);
 
             // Testing if everything worked like how it should.
             // System.out.println(player2.getHealth()); // Should be 2050
@@ -285,12 +292,6 @@ public class Game {
 
         }
 
-        // clean up the if statement like this...?
-        int player2Health = player2.getHealth();
-        int player2Defense = player2.getDefense();
-        int player1Attack = player1.getAttack();
-        player1.attack(player2Health, player2Defense);
-        player2.takeDamage(player1Attack);
 
     
 
