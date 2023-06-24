@@ -9,7 +9,7 @@ public class TankTest {
     @Test
     public void takeDamage_150_ShouldEqual2100()
     {
-        Character chara = new Tank("test");
+        Characters chara = new Tank("test");
         chara.takeDamage(150);
         assertEquals(2100, chara.getHealth());
     }
@@ -18,7 +18,7 @@ public class TankTest {
     public void attack_200_ShouldEqual1650()
     {
         // Assuming the Opponent's Health is 1500 and Defense is 300...
-        Character chara = new Tank("test");
+        Characters chara = new Tank("test");
         int oppHealth = chara.attack(1500, 300);
         assertEquals(1600, oppHealth);
 
@@ -27,7 +27,7 @@ public class TankTest {
     @Test
     public void isDefeated_healthIs0_ShouldBeTrue()
     {
-        Character chara = new Tank("Test");
+        Characters chara = new Tank("Test");
         chara.setHealth(0);
         String falseMessage = "Should be true because health = 0";
         assertTrue(falseMessage, chara.isDefeated());
@@ -36,7 +36,7 @@ public class TankTest {
     @Test
     public void isDefeated_healthIsNegative_ShouldBeTrue()
     {
-        Character chara = new Tank("Test");
+        Characters chara = new Tank("Test");
         chara.setHealth(-15);
         String falseMessage = "Should be true because health < 0";
         assertTrue(falseMessage, chara.isDefeated());
@@ -45,7 +45,7 @@ public class TankTest {
     @Test
     public void isDefeated_healthIs100_ShouldBeFalse()
     {
-        Character chara = new Tank("Test");
+        Characters chara = new Tank("Test");
         chara.setHealth(100);
         String falseMessage = "Should be false because health > 0";
         assertFalse(falseMessage, chara.isDefeated());
@@ -55,7 +55,7 @@ public class TankTest {
     // @Test
     // public void specialAbility_someCondition_someExpectedResult()
     // {
-    //     Character chara = new Tank("Test");
+    //     Characters chara = new Tank("Test");
     //     chara.specialAbility();
     //     String falseMessage = "Something, something...";
     //     assertEqual(falseMessage, chara.isDefeated());

@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         // Play the Main Menu music.
-        try 
-        {
-            playMusic();
-        } 
-        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            // System.out.println("Audio File NOT FOUND!");
+        // try 
+        // {
+        //     playMusic();
+        // } 
+        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        //     // System.out.println("Audio File NOT FOUND!");
 
-            e.printStackTrace(); //Tell me which exact error it throws.
-        }
+        //     e.printStackTrace(); //Tell me which exact error it throws.
+        // }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -41,13 +41,13 @@ public class Game {
         printClassesCharacters();
 
         // Create Characters.
-        ArrayList<Character> allCharacters = createCharacters();
+        ArrayList<Characters> allCharacters = createCharacters();
 
         // Prompt for Character Selection.
         System.out.println("*PLAYER 1*");
-        Character player1 = promptForCharacter(sc, allCharacters);
+        Characters player1 = promptForCharacter(sc, allCharacters);
         System.out.println("*PLAYER 2*");
-        Character player2 = promptForCharacter(sc, allCharacters);
+        Characters player2 = promptForCharacter(sc, allCharacters);
 
         // Begin the match!
         playerVersusPlayerMatch(player1, player2); // Update to include multi-player matches as well.
@@ -82,8 +82,7 @@ public class Game {
         // Actions
         actionInputs.add("ATTACK");
         actionInputs.add("SPECIAL MOVE");
-        // ("Use" + x) item...
-
+        actionInputs.add("USE ITEM");
 
         // Repeatedly tell them that their entry is invalid.
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input))
@@ -109,7 +108,9 @@ public class Game {
         // Pass in a "String status" parameter that tells the method which one to play and stop.
 
         // Create an Audio File object and read from it.
-        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots.
+        File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots (..).
+        // System.out.println("Attempting to read from file in: "+ mainMenu.getCanonicalPath());
+
         Scanner musicScanner = new Scanner(System.in);
 
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
@@ -166,7 +167,7 @@ public class Game {
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
      */
-    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
+    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList)
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
@@ -175,11 +176,11 @@ public class Game {
 
         // Iterate through Characters and assign the corresponding one.
 
-        Character player = charactersList.get(0); // Placeholder
+        Characters player = charactersList.get(0); // Placeholder
         
         for (int i = 0; i < charactersList.size(); i++) 
         {   
-            Character currentCharacter = charactersList.get(i);
+            Characters currentCharacter = charactersList.get(i);
 
             if ( userSelect.equals(currentCharacter.getName()) )
             {
@@ -200,22 +201,17 @@ public class Game {
      * Method to create all of the TANK Characters from the Character Interface.
      *  
      */ 
-    public static ArrayList<Character> createCharacters()
+    public static ArrayList<Characters> createCharacters()
     {
         // Character ArrayList
-        ArrayList<Character> allCharacters = new ArrayList<>();
+        ArrayList<Characters> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Character Atlas = new Tank("ATLAS");
-        Character RonnieColeman = new Tank("RONNIE COLEMAN");
+        Characters Atlas = new Tank("ATLAS");
+        Characters RonnieColeman = new Tank("RONNIE COLEMAN");
         
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
-
-        // Test methods... DELETE LATER AND MAKE INTO JUNIT TEST.
-        // Atlas.takeDamage(100);
-        // System.out.println(Atlas.getHealth());
-
 
         // Create the MARKSMEN.
         
@@ -240,12 +236,15 @@ public class Game {
      * @param player2 - The Character that Player 2 selected.
      * 
      */
-    public static void playerVersusPlayerMatch(Character player1, Character player2)
+    public static void playerVersusPlayerMatch(Characters player1, Characters player2)
     {
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
         // Probably turn this into another method that checks whose turn it is.
         // Check whose turn it is and alternate. 
+        // Establish which Character is Player1 and Player2?
+        // Use a queue or stack to pop off similar ot the Adventure Game where 
+        // we had to keep track of the last room they were in too. 
         boolean player1Turn = false;
         boolean player2Turn = false;
 
@@ -262,7 +261,7 @@ public class Game {
         
         System.out.println();
         System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
-        System.out.print("PLAYER 1 please make your move: ");
+        System.out.print("PLAYER 1 make your move: ");
 
         
         Scanner action = new Scanner(System.in);
@@ -273,28 +272,51 @@ public class Game {
         // Player ATTACKS scenario...
         if (player1Action.equals("ATTACK")) 
         {
-            System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
-            + player1.getAttack() + " DAMAGE!"); 
-        
-            int player2Health = player2.getHealth();
-            int player2Defense = player2.getDefense();
-            int player1Attack = player1.getAttack();
+           pvpAttack(player1, player2);
+           player1Turn = false;
+           
+        }
 
-            player1.attack(player2Health, player2Defense);
-            player2.takeDamage(player1Attack);
+        // Player USE ITEM scenario...
+        if (player1Action.equals("USE ITEM")) 
+        {
+            // Tell them what items they can use (for loop?).
+           System.out.println("Which item would you like to use? Your inventory includes...");
 
-            // Testing if everything worked like how it should.
-            // System.out.println(player2.getHealth()); // Should be 2050
-            // System.out.println(player2.getDefense()); // Should be 750
-
+           // And them use them accordingly... but how tho?
         }
 
 
-    
 
     }
 
 
+    /**
+     * If the player opts to attack, damage their opponent.
+     * @param player1
+     * @param player2
+     */
+    public static void pvpAttack(Characters player1, Characters player2)
+    {
+        System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
+        + player1.getAttack() + " DAMAGE!");
 
+        int player2Health = player2.getHealth();
+        int player2Defense = player2.getDefense();
+        int player1Attack = player1.getAttack();
+
+        player1.attack(player2Health, player2Defense);
+        player2.takeDamage(player1Attack);
+    }
+
+    /**
+     * If the player opts to use an item, use the item duh.
+     * @param player1
+     * @param player2
+     */
+    public static void pvpUseItem(Characters player1, Characters player2)
+    {
+        // Will come back to this after I figure out the items and Items class.
+    }
 
 }
