@@ -2,7 +2,7 @@
  * Character interface that contains a method "blueprint" for every Character.
  * 
  */
-public interface Character { 
+public interface Characters { 
     
     /**
      * Gets the name of the Character.

@@ -1,5 +1,5 @@
 
-public class Tank  implements Character {
+public class Tank implements Characters {
     String name = "";
     int health = 1500;
     int attack = 200; // Increase/decrease for balance?

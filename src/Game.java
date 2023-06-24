@@ -41,13 +41,13 @@ public class Game {
         printClassesCharacters();
 
         // Create Characters.
-        ArrayList<Character> allCharacters = createCharacters();
+        ArrayList<Characters> allCharacters = createCharacters();
 
         // Prompt for Character Selection.
         System.out.println("*PLAYER 1*");
-        Character player1 = promptForCharacter(sc, allCharacters);
+        Characters player1 = promptForCharacter(sc, allCharacters);
         System.out.println("*PLAYER 2*");
-        Character player2 = promptForCharacter(sc, allCharacters);
+        Characters player2 = promptForCharacter(sc, allCharacters);
 
         // Begin the match!
         playerVersusPlayerMatch(player1, player2); // Update to include multi-player matches as well.
@@ -110,6 +110,8 @@ public class Game {
 
         // Create an Audio File object and read from it.
         File mainMenu = new File("Code_Combat/Game Music/Nightshade - AdhesiveWombat.wav"); // Only works on desktop when using Code_Combat not the dots (..).
+        // System.out.println("Attempting to read from file in: "+ mainMenu.getCanonicalPath());
+
         Scanner musicScanner = new Scanner(System.in);
 
         AudioInputStream audioStream = AudioSystem.getAudioInputStream(mainMenu);
@@ -166,7 +168,7 @@ public class Game {
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
      */
-    public static Character promptForCharacter(Scanner sc, ArrayList<Character> charactersList)
+    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList)
     {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
@@ -175,11 +177,11 @@ public class Game {
 
         // Iterate through Characters and assign the corresponding one.
 
-        Character player = charactersList.get(0); // Placeholder
+        Characters player = charactersList.get(0); // Placeholder
         
         for (int i = 0; i < charactersList.size(); i++) 
         {   
-            Character currentCharacter = charactersList.get(i);
+            Characters currentCharacter = charactersList.get(i);
 
             if ( userSelect.equals(currentCharacter.getName()) )
             {
@@ -200,14 +202,14 @@ public class Game {
      * Method to create all of the TANK Characters from the Character Interface.
      *  
      */ 
-    public static ArrayList<Character> createCharacters()
+    public static ArrayList<Characters> createCharacters()
     {
         // Character ArrayList
-        ArrayList<Character> allCharacters = new ArrayList<>();
+        ArrayList<Characters> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Character Atlas = new Tank("ATLAS");
-        Character RonnieColeman = new Tank("RONNIE COLEMAN");
+        Characters Atlas = new Tank("ATLAS");
+        Characters RonnieColeman = new Tank("RONNIE COLEMAN");
         
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
@@ -240,7 +242,7 @@ public class Game {
      * @param player2 - The Character that Player 2 selected.
      * 
      */
-    public static void playerVersusPlayerMatch(Character player1, Character player2)
+    public static void playerVersusPlayerMatch(Characters player1, Characters player2)
     {
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
