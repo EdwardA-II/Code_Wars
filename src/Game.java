@@ -275,9 +275,6 @@ public class Game {
         {
             System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
             + player1.getAttack() + " DAMAGE!"); 
-           
-            // player1.attack(player2.getHealth(), player2.getDefense());
-            // player2.takeDamage(player1.getAttack());
         
             int player2Health = player2.getHealth();
             int player2Defense = player2.getDefense();
