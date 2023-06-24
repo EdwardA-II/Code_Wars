@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         // Play the Main Menu music.
-        try 
-        {
-            playMusic();
-        } 
-        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            // System.out.println("Audio File NOT FOUND!");
+        // try 
+        // {
+        //     playMusic();
+        // } 
+        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+        //     // System.out.println("Audio File NOT FOUND!");
 
-            e.printStackTrace(); //Tell me which exact error it throws.
-        }
+        //     e.printStackTrace(); //Tell me which exact error it throws.
+        // }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -275,31 +275,30 @@ public class Game {
         // Player ATTACKS scenario...
         if (player1Action.equals("ATTACK")) 
         {
-            System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
-            + player1.getAttack() + " DAMAGE!");
-           
-            // player1.attack(player2.getHealth(), player2.getDefense());
-            // player2.takeDamage(player1.getAttack());
-        
-            int player2Health = player2.getHealth();
-            int player2Defense = player2.getDefense();
-            int player1Attack = player1.getAttack();
-
-            player1.attack(player2Health, player2Defense);
-            player2.takeDamage(player1Attack);
-
-            // Testing if everything worked like how it should.
-            // System.out.println(player2.getHealth()); // Should be 2050
-            // System.out.println(player2.getDefense()); // Should be 750
-
+           pvpAttack(player1, player2);
         }
 
-
-    
 
     }
 
 
+    /**
+     * If the player opts to attack, damage their opponent.
+     * @param player1
+     * @param player2
+     */
+    public static void pvpAttack(Characters player1, Characters player2)
+    {
+        System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
+        + player1.getAttack() + " DAMAGE!");
+
+        int player2Health = player2.getHealth();
+        int player2Defense = player2.getDefense();
+        int player1Attack = player1.getAttack();
+
+        player1.attack(player2Health, player2Defense);
+        player2.takeDamage(player1Attack);
+    }
 
 
 }
