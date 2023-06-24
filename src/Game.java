@@ -82,8 +82,7 @@ public class Game {
         // Actions
         actionInputs.add("ATTACK");
         actionInputs.add("SPECIAL MOVE");
-        // ("Use" + x) item...
-
+        actionInputs.add("USE ITEM");
 
         // Repeatedly tell them that their entry is invalid.
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input))
@@ -214,11 +213,6 @@ public class Game {
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
 
-        // Test methods... DELETE LATER AND MAKE INTO JUNIT TEST.
-        // Atlas.takeDamage(100);
-        // System.out.println(Atlas.getHealth());
-
-
         // Create the MARKSMEN.
         
 
@@ -248,6 +242,9 @@ public class Game {
 
         // Probably turn this into another method that checks whose turn it is.
         // Check whose turn it is and alternate. 
+        // Establish which Character is Player1 and Player2?
+        // Use a queue or stack to pop off similar ot the Adventure Game where 
+        // we had to keep track of the last room they were in too. 
         boolean player1Turn = false;
         boolean player2Turn = false;
 
@@ -264,7 +261,7 @@ public class Game {
         
         System.out.println();
         System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
-        System.out.print("PLAYER 1 please make your move: ");
+        System.out.print("PLAYER 1 make your move: ");
 
         
         Scanner action = new Scanner(System.in);
@@ -276,12 +273,14 @@ public class Game {
         if (player1Action.equals("ATTACK")) 
         {
            pvpAttack(player1, player2);
+           player1Turn = false;
+           
         }
 
         // Player USE ITEM scenario...
         if (player1Action.equals("USE ITEM")) 
         {
-            // Tell them what items they can use.
+            // Tell them what items they can use (for loop?).
            System.out.println("Which item would you like to use? Your inventory includes...");
 
            // And them use them accordingly... but how tho?
