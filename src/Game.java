@@ -278,6 +278,16 @@ public class Game {
            pvpAttack(player1, player2);
         }
 
+        // Player USE ITEM scenario...
+        if (player1Action.equals("USE ITEM")) 
+        {
+            // Tell them what items they can use.
+           System.out.println("Which item would you like to use? Your inventory includes...");
+
+           // And them use them accordingly... but how tho?
+        }
+
+
 
     }
 
@@ -300,5 +310,14 @@ public class Game {
         player2.takeDamage(player1Attack);
     }
 
+    /**
+     * If the player opts to use an item, use the item duh.
+     * @param player1
+     * @param player2
+     */
+    public static void pvpUseItem(Characters player1, Characters player2)
+    {
+        // Will come back to this after I figure out the items and Items class.
+    }
 
 }
