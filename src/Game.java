@@ -207,7 +207,7 @@ public class Game {
         ArrayList<Characters> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Characters Atlas = new Tank("ATLAS");
+        Tank Atlas = new Tank("ATLAS");
         Characters RonnieColeman = new Tank("RONNIE COLEMAN");
         
         allCharacters.add(Atlas);
@@ -245,6 +245,10 @@ public class Game {
         // Establish which Character is Player1 and Player2?
         // Use a queue or stack to pop off similar ot the Adventure Game where 
         // we had to keep track of the last room they were in too. 
+
+        // Yeah, definitely break this up into smaller methods like the useItem thing. Place this
+        // within the "UseItem" block?
+        
         boolean player1Turn = false;
         boolean player2Turn = false;
 
