@@ -240,15 +240,21 @@ public class Game {
     {
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
-        // Probably turn this into another method that checks whose turn it is.
-        // Check whose turn it is and alternate. 
-        // Establish which Character is Player1 and Player2?
-        // Use a queue or stack to pop off similar ot the Adventure Game where 
-        // we had to keep track of the last room they were in too. 
+        /*
+         * Probably turn this into another method that checks whose turn it is.
+         * Check whose turn it is and alternate. 
+         * Establish which Character is Player1 and Player2?
+         * Use a queue or stack to pop off similar ot the Adventure Game where 
+         * we had to keep track of the last room they were in too.
+         * 
+         * Whenever player1 does something, check swap the variables to false and true accordingly?
+         */
+        
 
         // Yeah, definitely break this up into smaller methods like the useItem thing. Place this
         // within the "UseItem" block?
-        
+
+
         boolean player1Turn = false;
         boolean player2Turn = false;
 
