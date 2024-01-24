@@ -254,20 +254,6 @@ public class Game {
         // Yeah, definitely break this up into smaller methods like the useItem thing. Place this
         // within the "UseItem" block?
 
-
-        boolean player1Turn = false;
-        boolean player2Turn = false;
-
-        if (player1Turn == true) 
-        {
-            player2Turn = false;
-        }
-
-        else if (player2Turn == true) 
-        {
-            player1Turn = false;
-        }
-
         
         System.out.println();
         System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
@@ -283,7 +269,7 @@ public class Game {
         if (player1Action.equals("ATTACK")) 
         {
            pvpAttack(player1, player2);
-           player1Turn = false;
+          // player1Turn = false;
            
         }
 
@@ -300,6 +286,37 @@ public class Game {
 
     }
 
+    /**
+     * A method to check whose turn it is during the match. 
+     */
+    public static void checkTurn() {
+        /*
+         * Probably turn this into another method that checks whose turn it is.
+         * Check whose turn it is and alternate. 
+         * Establish which Character is Player1 and Player2?
+         * Use a queue or stack to pop off similar ot the Adventure Game where 
+         * we had to keep track of the last room they were in too.
+         * 
+         * Whenever player1 does something, check swap the variables to false and true accordingly?
+         */ 
+        boolean player1Turn = false;
+        boolean player2Turn = false;
+
+        boolean globalTurn = player1Turn;
+
+        
+
+        if (player1Turn == true) 
+        {
+            player2Turn = false;
+        }
+
+        else if (player2Turn == true) 
+        {
+            player1Turn = false;
+        }
+    }
+    
 
     /**
      * If the player opts to attack, damage their opponent.
