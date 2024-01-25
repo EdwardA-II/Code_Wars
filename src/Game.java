@@ -259,6 +259,7 @@ public class Game {
         System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
         System.out.print("PLAYER 1 make your move: ");
 
+        boolean playerTurn = false;
         
         Scanner action = new Scanner(System.in);
         String player1Action = action.nextLine();
@@ -268,7 +269,7 @@ public class Game {
         // Player ATTACKS scenario...
         if (player1Action.equals("ATTACK")) 
         {
-           pvpAttack(player1, player2);
+           pvpAttack(player1, player2, playerTurn);
           // player1Turn = false;
            
         }
