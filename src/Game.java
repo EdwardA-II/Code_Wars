@@ -289,31 +289,41 @@ public class Game {
     /**
      * A method to check whose turn it is during the match. 
      */
-    public static void checkTurn() {
+    public static void checkTurn(boolean p1Turn, boolean p2Turn) {
         /*
          * Probably turn this into another method that checks whose turn it is.
          * Check whose turn it is and alternate. 
          * Establish which Character is Player1 and Player2?
-         * Use a queue or stack to pop off similar ot the Adventure Game where 
+         * Use a queue or stack to pop off similar to the Adventure Game where 
          * we had to keep track of the last room they were in too.
          * 
          * Whenever player1 does something, check swap the variables to false and true accordingly?
          */ 
-        boolean player1Turn = false;
-        boolean player2Turn = false;
+        p1Turn = false;
+        p2Turn = false;
 
-        boolean globalTurn = player1Turn;
+        boolean whoseTurn = p1Turn;
+
+        /* WAIT!
+         * ChatGPT showed me that I could just change the player's turn at the end of every action.
+         * And I would indeed need to assign/establish which Character is player1 and player2.
+         * (And probably have respective classes for each.) *See line 296*
+         */
+
+
+
+
 
         
 
-        if (player1Turn == true) 
+        if (p1Turn == true) 
         {
-            player2Turn = false;
+            p2Turn = false;
         }
 
-        else if (player2Turn == true) 
+        else if (p2Turn == true) 
         {
-            player1Turn = false;
+            p1Turn = false;
         }
     }
     
@@ -323,7 +333,7 @@ public class Game {
      * @param player1
      * @param player2
      */
-    public static void pvpAttack(Characters player1, Characters player2)
+    public static void pvpAttack(Characters player1, Characters player2, boolean turn)
     {
         System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
         + player1.getAttack() + " DAMAGE!");
