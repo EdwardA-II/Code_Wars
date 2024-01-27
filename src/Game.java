@@ -43,7 +43,7 @@ public class Game {
         // Create Characters.
         ArrayList<Characters> allCharacters = createCharacters();
 
-        // Prompt for Character Selection.
+        // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
         Characters player1 = promptForCharacter(sc, allCharacters);
         System.out.println("*PLAYER 2*");
@@ -198,8 +198,9 @@ public class Game {
 
 
     /**
-     * Method to create all of the TANK Characters from the Character Interface.
-     *  
+     * Method to create all of the Characters from the Character Interface.
+     * 
+     * @return allCharacters - An array of all Character objects in the game.
      */ 
     public static ArrayList<Characters> createCharacters()
     {
@@ -209,7 +210,8 @@ public class Game {
         // Create the TANKS.
         Tank Atlas = new Tank("ATLAS");
         Characters RonnieColeman = new Tank("RONNIE COLEMAN");
-        
+        // CharacterS not Character to avoid it confusing the class for the Character wrapper class.
+
         allCharacters.add(Atlas);
         allCharacters.add(RonnieColeman);
 
@@ -238,94 +240,93 @@ public class Game {
      */
     public static void playerVersusPlayerMatch(Characters player1, Characters player2)
     {
-        System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
-        /*
-         * Probably turn this into another method that checks whose turn it is.
-         * Check whose turn it is and alternate. 
-         * Establish which Character is Player1 and Player2?
-         * Use a queue or stack to pop off similar ot the Adventure Game where 
-         * we had to keep track of the last room they were in too.
-         * 
-         * Whenever player1 does something, check swap the variables to false and true accordingly?
-         */
-        
-
-        // Yeah, definitely break this up into smaller methods like the useItem thing. Place this
-        // within the "UseItem" block?
-
-        
-        System.out.println();
-        System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
-        System.out.print("PLAYER 1 make your move: ");
-
-        boolean playerTurn = false;
-        
         Scanner action = new Scanner(System.in);
-        String player1Action = action.nextLine();
-        userInputValid(player1Action, action);
-        System.out.println();
 
-        // Player ATTACKS scenario...
-        if (player1Action.equals("ATTACK")) 
-        {
-           pvpAttack(player1, player2, playerTurn);
-          // player1Turn = false;
-           
+        System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
+        String player1Action = "";
+
+        // Player 1's scenario.
+        while ( !(player1Action.equals("QUIT")) ) {
+            Characters whoseTurn = player1;
+        
+            System.out.println();
+            System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
+            System.out.print("PLAYER 1 make your move: "); // Need to change according to whose turn it is.
+
+            boolean p1turn = false;
+            boolean p2turn = false;
+            
+            // Clean this up to have it switch the player's name above.
+            // if (!p1turn) {
+            //     p2turn = true;
+            // }
+            // else if (!p2turn) {
+            //     p1turn = true;
+            // }
+
+            
+            player1Action = action.nextLine();
+            userInputValid(player1Action, action);
+            System.out.println();
+
+            // Player ATTACKS scenario...
+            if (player1Action.equals("ATTACK")) {
+                pvpAttack(player1, player2);
+                switchTurn(player1, player2, player1);
+            }
+
+            // Player USE ITEM scenario...
+            if (player1Action.equals("USE ITEM")) 
+            {
+                // Tell them what items they can use (for loop?).
+            System.out.println("Which item would you like to use? Your inventory includes...");
+
+            // And them use them accordingly... but how tho?
+            // checkTurn method goes here;
+            }
         }
 
-        // Player USE ITEM scenario...
-        if (player1Action.equals("USE ITEM")) 
-        {
-            // Tell them what items they can use (for loop?).
-           System.out.println("Which item would you like to use? Your inventory includes...");
-
-           // And them use them accordingly... but how tho?
-        }
+        
+        // Make another while loop with Player 2's scenario here...
 
 
 
     }
 
     /**
-     * A method to check whose turn it is during the match. 
+     * A method to check whose turn it is during the match.
+     *
+     * @param player1 - The Character that Player 1 selected.
+     * @param player2 - The Character that Player 2 selected.
+    //  * @param whoWent - Tracks which player went last.
+     * @return whoseTurn - Whoever did not go the last time. 
+     * 
      */
-    public static void checkTurn(boolean p1Turn, boolean p2Turn) {
+    public static Characters switchTurn(Characters player1, Characters player2, Characters whoWent) {
+
+         // player 1 goes first always. then change to "coin flip" (random) later?
+         // Then rename to switchTurn since we aren't checking, we are just swapping back and forth.
+
         /*
-         * Probably turn this into another method that checks whose turn it is.
-         * Check whose turn it is and alternate. 
-         * Establish which Character is Player1 and Player2?
-         * Use a queue or stack to pop off similar to the Adventure Game where 
-         * we had to keep track of the last room they were in too.
-         * 
-         * Whenever player1 does something, check swap the variables to false and true accordingly?
-         */ 
-        p1Turn = false;
-        p2Turn = false;
-
-        boolean whoseTurn = p1Turn;
-
-        /* WAIT!
-         * ChatGPT showed me that I could just change the player's turn at the end of every action.
-         * And I would indeed need to assign/establish which Character is player1 and player2.
-         * (And probably have respective classes for each.) *See line 296*
+         * Yeah I think I'm gonna have to create a separate while loop within the playerVersusPlayerMatch
+         * method to accomodate who went, whose turn it is, and whatever else.
+         * It might be too difficult to try and check who went for each and every instance.
          */
 
+        Characters whoseTurn = null;
+        // some kind of "first move of the game" tracker?
 
 
-
-
-        
-
-        if (p1Turn == true) 
-        {
-            p2Turn = false;
+        if (whoWent == player1) {
+            whoseTurn = player2;
+        }
+        else if (whoWent == player2) {
+            whoseTurn = player1;
         }
 
-        else if (p2Turn == true) 
-        {
-            p1Turn = false;
-        }
+
+        return whoseTurn;
     }
     
 
@@ -334,7 +335,7 @@ public class Game {
      * @param player1
      * @param player2
      */
-    public static void pvpAttack(Characters player1, Characters player2, boolean turn)
+    public static void pvpAttack(Characters player1, Characters player2)
     {
         System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
         + player1.getAttack() + " DAMAGE!");
