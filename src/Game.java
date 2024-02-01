@@ -176,7 +176,8 @@ public class Game {
 
         // Iterate through Characters and assign the corresponding one.
 
-        Characters player = charactersList.get(0); // Placeholder
+        Characters player = new Tank("Placeholder"); // Placeholder
+
         
         for (int i = 0; i < charactersList.size(); i++) 
         {   
