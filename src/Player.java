@@ -1,8 +1,14 @@
+import java.util.ArrayList;
+
 public class Player {
-    // Randome bs that will fill out later.
+    // Random bs that will fill out later.
     String player = "";
     int move = 0;
     Characters playerCharacter = null;
+
+    private ArrayList<Characters> players = new ArrayList<>();
+
+
 
     public Player() {
         // This is a constructor.
@@ -18,6 +24,8 @@ public class Player {
     public void endTurn() {
 
     }
+
+
 
     // Maybe I also need some kind of "startTurn" functionality as well?
 

@@ -13,15 +13,15 @@ public class Game {
         // Blocked off to avoid music playing everytime I run the code.
         
         // Play the Main Menu music.
-        // try 
-        // {
-        //     playMusic();
-        // } 
-        // catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-        //     // System.out.println("Audio File NOT FOUND!");
+        try 
+        {
+            playMusic();
+        } 
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
 
-        //     e.printStackTrace(); //Tell me which exact error it throws.
-        // }
+            e.printStackTrace(); //Tell me which exact error it throws.
+        }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -239,8 +239,7 @@ public class Game {
      * @param player2 - The Character that Player 2 selected.
      * 
      */
-    public static void playerVersusPlayerMatch(Characters player1, Characters player2)
-    {
+    public static void playerVersusPlayerMatch(Characters player1, Characters player2) {
 
         Scanner action = new Scanner(System.in);
 
@@ -255,16 +254,6 @@ public class Game {
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
             System.out.print("PLAYER 1 make your move: "); // Need to change according to whose turn it is.
 
-            boolean p1turn = false;
-            boolean p2turn = false;
-            
-            // Clean this up to have it switch the player's name above.
-            // if (!p1turn) {
-            //     p2turn = true;
-            // }
-            // else if (!p2turn) {
-            //     p1turn = true;
-            // }
 
             
             player1Action = action.nextLine();
@@ -277,9 +266,11 @@ public class Game {
                 switchTurn(player1, player2, player1);
             }
 
+            // MARK: TEST
+
+
             // Player USE ITEM scenario...
-            if (player1Action.equals("USE ITEM")) 
-            {
+            if (player1Action.equals("USE ITEM")) {
                 // Tell them what items they can use (for loop?).
             System.out.println("Which item would you like to use? Your inventory includes...");
 
@@ -289,10 +280,6 @@ public class Game {
         }
 
         
-        // Make another while loop with Player 2's scenario here...
-
-
-
     }
 
     /**
@@ -319,10 +306,10 @@ public class Game {
         // some kind of "first move of the game" tracker?
 
 
-        if (whoWent == player1) {
+        if (whoWent.equals(player1)) {
             whoseTurn = player2;
         }
-        else if (whoWent == player2) {
+        else if (whoWent.equals(player2)) {
             whoseTurn = player1;
         }
 
@@ -336,8 +323,7 @@ public class Game {
      * @param player1
      * @param player2
      */
-    public static void pvpAttack(Characters player1, Characters player2)
-    {
+    public static void pvpAttack(Characters player1, Characters player2) {
         System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
         + player1.getAttack() + " DAMAGE!");
 
