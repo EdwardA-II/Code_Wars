@@ -7,10 +7,10 @@ import javax.sound.sampled.*;
 
 public class Game {
 
-    public static void main(String[] args) throws FileNotFoundException
-    {
+    public static void main(String[] args) throws FileNotFoundException {
         // UNCOMMENT THIS BLOCK TO PLAY MUSIC.
         // Blocked off to avoid music playing everytime I run the code.
+        // Move this into another method?
         
         // Play the Main Menu music.
         try 
@@ -265,9 +265,6 @@ public class Game {
                 pvpAttack(player1, player2);
                 switchTurn(player1, player2, player1);
             }
-
-            // MARK: TEST
-
 
             // Player USE ITEM scenario...
             if (player1Action.equals("USE ITEM")) {
