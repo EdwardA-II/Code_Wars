@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+
+# IntelliJ-related files and folders.
+misc.xml
+modules.xml
+vcs.xml
+.idea/
+CodeCombat.iml
