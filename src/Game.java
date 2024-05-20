@@ -62,8 +62,7 @@ public class Game {
      * @param input - What the user entered into the terminal.
      * @param sc - The scanner to read the new input from the user (repeatedly).
      */
-    public static void userInputValid(String input, Scanner sc)
-    {   
+    public static void userInputValid(String input, Scanner sc) {
         // Hold all possible correct inputs to check.
         ArrayList<String> menuInputs = new ArrayList<>(); // Menu(s)
         ArrayList<String> characterInputs = new ArrayList<>(); // Characters
@@ -102,8 +101,7 @@ public class Game {
      * @throws LineUnavailableException
      * 
      */
-    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException
-    {   // Make this into a CLASS? bc you need to...
+    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {   // Make this into a CLASS? bc you need to...
         // Play different game music depending on the scenario.
         // Pass in a "String status" parameter that tells the method which one to play and stop.
 
@@ -126,8 +124,7 @@ public class Game {
      * Prints the rules and mechnics of the game to the player via the console.
      * 
      */
-    public static void printRulesMechanics() throws FileNotFoundException
-    {
+    public static void printRulesMechanics() throws FileNotFoundException {
         // Create a File object to hold the Rules + Mechanics file. 
         File rulesMechs = new File("Rules + Mechanics.txt");
 		Scanner textReader = new Scanner(rulesMechs);
@@ -145,8 +142,7 @@ public class Game {
      * Prints the Classes and Characters of the game to the player via the console.
      * 
      */
-    public static void printClassesCharacters() throws FileNotFoundException
-    {
+    public static void printClassesCharacters() throws FileNotFoundException {
         // Create a File object to hold the Rules + Mechanics file. 
         File characterInfo = new File("Classes + Character Information.txt");
 		Scanner fileReader = new Scanner(characterInfo);
@@ -167,8 +163,7 @@ public class Game {
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
      */
-    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList)
-    {
+    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList) {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         String userSelect = sc.nextLine();
@@ -201,8 +196,7 @@ public class Game {
      * 
      * @return allCharacters - An array of all Character objects in the game.
      */ 
-    public static ArrayList<Characters> createCharacters()
-    {
+    public static ArrayList<Characters> createCharacters() {
         // Character ArrayList
         ArrayList<Characters> allCharacters = new ArrayList<>();
 
@@ -335,8 +329,7 @@ public class Game {
      * @param player1
      * @param player2
      */
-    public static void pvpUseItem(Characters player1, Characters player2)
-    {
+    public static void pvpUseItem(Characters player1, Characters player2) {
         // Will come back to this after I figure out the items and Items class.
     }
 
