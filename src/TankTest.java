@@ -1,4 +1,3 @@
-timport org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -12,7 +11,7 @@ public class TankTest {
     {
         Characters chara = new Tank("test");
         chara.takeDamage(150);
-        Assert.assertEquals(2100, chara.getHealth());
+        assertEquals(2100, chara.getHealth());
     }
 
     @Test

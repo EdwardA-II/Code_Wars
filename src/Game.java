@@ -13,15 +13,15 @@ public class Game {
         // Move this into another method?
         
         // Play the Main Menu music.
-        try 
-        {
-            playMusic();
-        } 
-        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            // System.out.println("Audio File NOT FOUND!");
-
-            e.printStackTrace(); //Tell me which exact error it throws.
-        }
+//        try
+//        {
+//            playMusic();
+//        }
+//        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+//            // System.out.println("Audio File NOT FOUND!");
+//
+//            e.printStackTrace(); //Tell me which exact error it throws.
+//        }
         
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -129,7 +129,7 @@ public class Game {
     public static void printRulesMechanics() throws FileNotFoundException
     {
         // Create a File object to hold the Rules + Mechanics file. 
-        File rulesMechs = new File("Code_Combat/Rules + Mechanics.txt");
+        File rulesMechs = new File("Rules + Mechanics.txt");
 		Scanner textReader = new Scanner(rulesMechs);
 		
 		// Open the file and print each line until done.
@@ -148,7 +148,7 @@ public class Game {
     public static void printClassesCharacters() throws FileNotFoundException
     {
         // Create a File object to hold the Rules + Mechanics file. 
-        File characterInfo = new File("Code_Combat/Classes + Character Information.txt");
+        File characterInfo = new File("Classes + Character Information.txt");
 		Scanner fileReader = new Scanner(characterInfo);
 		
 		// Open the file and print each line until done.
@@ -179,12 +179,10 @@ public class Game {
         Characters player = new Tank("Placeholder"); // Placeholder
 
         
-        for (int i = 0; i < charactersList.size(); i++) 
-        {   
+        for (int i = 0; i < charactersList.size(); i++) {
             Characters currentCharacter = charactersList.get(i);
 
-            if ( userSelect.equals(currentCharacter.getName()) )
-            {
+            if ( userSelect.equals(currentCharacter.getName()) ) {
                 player = charactersList.get(i);
             }
 

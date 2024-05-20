@@ -3,3 +3,4 @@ bin/App.class
 .gitignore.swp
 Code_Combat.iml
 *iml
+/out/
