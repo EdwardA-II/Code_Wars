@@ -29,13 +29,6 @@ public class Tank implements Characters {
      * @param inputName - The name of Character that the PLAYER wants to use. 
      * @return The Character's name.
      */
-    @Override
-    public void setName(String inputName)
-    {
-        this.name = inputName;
-        // Might not need this method since the Character name is set in the constructor.
-        // And it doesn't change. Hmm...
-    }
 
     /**
      * @return the health
