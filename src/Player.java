@@ -6,9 +6,6 @@ public class Player {
     int move = 0;
     Characters playerCharacter = null;
 
-    private ArrayList<Characters> players = new ArrayList<>();
-
-
 
     public Player() {
         // This is a constructor.

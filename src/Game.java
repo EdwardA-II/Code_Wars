@@ -7,6 +7,10 @@ import javax.sound.sampled.*;
 
 public class Game {
 
+    public Game () {
+
+    }
+
     public static void main(String[] args) throws FileNotFoundException {
         // UNCOMMENT THIS BLOCK TO PLAY MUSIC.
         // Blocked off to avoid music playing everytime I run the code.
@@ -22,7 +26,7 @@ public class Game {
 //
 //            e.printStackTrace(); //Tell me which exact error it throws.
 //        }
-        
+
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
         Scanner sc = new Scanner(System.in);
@@ -252,6 +256,11 @@ public class Game {
             userInputValid(player1Action, action);
             System.out.println();
 
+            // Will fix up l8r. tryna see sumn.
+            Player pl = new Player();
+            GameManager.switchTurn(pl);
+
+
             // Player ATTACKS scenario...
             if (player1Action.equals("ATTACK")) {
                 pvpAttack(player1, player2);
@@ -285,12 +294,6 @@ public class Game {
          // player 1 goes first always. then change to "coin flip" (random) later?
          // Then rename to switchTurn since we aren't checking, we are just swapping back and forth.
 
-        /*
-         * Yeah I think I'm gonna have to create a separate while loop within the playerVersusPlayerMatch
-         * method to accomodate who went, whose turn it is, and whatever else.
-         * It might be too difficult to try and check who went for each and every instance.
-         */
-
         Characters whoseTurn = null;
         // some kind of "first move of the game" tracker?
 
@@ -304,8 +307,9 @@ public class Game {
 
 
         return whoseTurn;
+
     }
-    
+
 
     /**
      * If the player opts to attack, damage their opponent.
