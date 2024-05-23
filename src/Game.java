@@ -7,10 +7,6 @@ import javax.sound.sampled.*;
 
 public class Game {
 
-    public Game () {
-
-    }
-
     public static void main(String[] args) throws FileNotFoundException {
         // UNCOMMENT THIS BLOCK TO PLAY MUSIC.
         // Blocked off to avoid music playing everytime I run the code.
@@ -25,6 +21,8 @@ public class Game {
 //            // System.out.println("Audio File NOT FOUND!");
 //
 //            e.printStackTrace(); //Tell me which exact error it throws.
+
+        GameManager gameManager = new GameManager();
 //        }
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
@@ -90,7 +88,7 @@ public class Game {
         // Repeatedly tell them that their entry is invalid.
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input))
         {
-            System.out.print("INVALID INPUT! Please try again: ");
+            System.out.println("INVALID INPUT! Please try again: ");
             input = sc.nextLine();
         }
         
@@ -175,23 +173,34 @@ public class Game {
 
         // Iterate through Characters and assign the corresponding one.
 
-        Characters player = new Tank("Placeholder"); // Placeholder
-
+        // Create "PlaceHolder' objects to be used within the for loop.
+        Characters playersCharacterChoice = new Tank("Placeholder");
+        Player thisPlayer = new Player();
         
         for (int i = 0; i < charactersList.size(); i++) {
             Characters currentCharacter = charactersList.get(i);
 
             if ( userSelect.equals(currentCharacter.getName()) ) {
-                player = charactersList.get(i);
+                playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
+                thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
+                GameManager.setPlayers(thisPlayer); // Add the Player object to the GameManager.
             }
+            /* TODO: Looks like if you enter the name wrong, it says "You selected: [ Placeholder ]" as if it didn't recognize
+                to go back through the characterslist and check again.
+                Might need to make this a separate method to check through the characters list. Or use .contains()?
+
+                TODO: Oooo...maybe use Map for Player-Character pairs instead of different lists?
+
+                TODO: Also I wanna use indexOf to avoid a for loop. This might solve my first problem as well.
+             */
 
         }
 
-        System.out.println("You selected: " + "[ " + player.getName() + " ]");
+        System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
         System.out.println();
 
         
-        return player; // Return Character.
+        return playersCharacterChoice; // Return Character.
     }
 
 
@@ -240,15 +249,29 @@ public class Game {
         Scanner action = new Scanner(System.in);
 
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
+
+        // Will need to rename this to be something more general since it will not be specific to Player.
         String player1Action = "";
+
+        String p1p2 = "Player 1"; //TODO: Rename this variable later?
+
 
         // Player 1's scenario.
         while ( !(player1Action.equals("QUIT")) ) {
-            Characters whoseTurn = player1;
-        
-            System.out.println();
+
+            System.out.print(p1p2 + " make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
-            System.out.print("PLAYER 1 make your move: "); // Need to change according to whose turn it is.
+
+            if ( p1p2.equals("Player 1") ) {
+                p1p2 = "Player 2";
+            }
+            else if ( p1p2.equals("Player 2") ) {
+                p1p2 = "Player 1";
+
+            }
+
+            System.out.println();
+
 
 
             
@@ -256,16 +279,13 @@ public class Game {
             userInputValid(player1Action, action);
             System.out.println();
 
-            // Will fix up l8r. tryna see sumn.
-            Player pl = new Player();
-            GameManager.switchTurn(pl);
-
 
             // Player ATTACKS scenario...
             if (player1Action.equals("ATTACK")) {
                 pvpAttack(player1, player2);
-                switchTurn(player1, player2, player1);
+                GameManager.switchTurn();
             }
+
 
             // Player USE ITEM scenario...
             if (player1Action.equals("USE ITEM")) {
@@ -278,36 +298,6 @@ public class Game {
         }
 
         
-    }
-
-    /**
-     * A method to check whose turn it is during the match.
-     *
-     * @param player1 - The Character that Player 1 selected.
-     * @param player2 - The Character that Player 2 selected.
-    //  * @param whoWent - Tracks which player went last.
-     * @return whoseTurn - Whoever did not go the last time. 
-     * 
-     */
-    public static Characters switchTurn(Characters player1, Characters player2, Characters whoWent) {
-
-         // player 1 goes first always. then change to "coin flip" (random) later?
-         // Then rename to switchTurn since we aren't checking, we are just swapping back and forth.
-
-        Characters whoseTurn = null;
-        // some kind of "first move of the game" tracker?
-
-
-        if (whoWent.equals(player1)) {
-            whoseTurn = player2;
-        }
-        else if (whoWent.equals(player2)) {
-            whoseTurn = player1;
-        }
-
-
-        return whoseTurn;
-
     }
 
 
