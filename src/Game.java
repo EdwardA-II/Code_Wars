@@ -21,8 +21,6 @@ public class Game {
 //            // System.out.println("Audio File NOT FOUND!");
 //
 //            e.printStackTrace(); //Tell me which exact error it throws.
-
-        GameManager gameManager = new GameManager();
 //        }
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
@@ -45,14 +43,21 @@ public class Game {
         // Create Characters.
         ArrayList<Characters> allCharacters = createCharacters();
 
+        // Player objects creation.
+        Player player1 = new Player();
+        Player player2 = new Player();
+
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
-        Characters player1 = promptForCharacter(sc, allCharacters);
+        Characters player1Character = promptForCharacter(sc, allCharacters);
+        player1.assignCharacter(player1Character);
+
         System.out.println("*PLAYER 2*");
-        Characters player2 = promptForCharacter(sc, allCharacters);
+        Characters player2Character = promptForCharacter(sc, allCharacters);
+        player2.assignCharacter(player2Character);
 
         // Begin the match!
-        playerVersusPlayerMatch(player1, player2); // Update to include multi-player matches as well.
+        playerVsPlayerMatch(player1, player2); // Update to include multi-player matches as well.
         
         sc.close();
 
@@ -244,20 +249,20 @@ public class Game {
      * @param player2 - The Character that Player 2 selected.
      * 
      */
-    public static void playerVersusPlayerMatch(Characters player1, Characters player2) {
+    public static void playerVsPlayerMatch(Player player1, Player player2) {
 
         Scanner action = new Scanner(System.in);
 
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
         // Will need to rename this to be something more general since it will not be specific to Player.
-        String player1Action = "";
+        String playerAction = "";
 
         String p1p2 = "Player 1"; //TODO: Rename this variable later?
 
 
         // Player 1's scenario.
-        while ( !(player1Action.equals("QUIT")) ) {
+        while ( !(playerAction.equals("QUIT")) ) {
 
             System.out.print(p1p2 + " make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
@@ -275,20 +280,20 @@ public class Game {
 
 
             
-            player1Action = action.nextLine();
-            userInputValid(player1Action, action);
+            playerAction = action.nextLine();
+            userInputValid(playerAction, action);
             System.out.println();
 
 
             // Player ATTACKS scenario...
-            if (player1Action.equals("ATTACK")) {
-                pvpAttack(player1, player2);
+            if (playerAction.equals("ATTACK")) {
+                pvpAttack(player1.getPlayerCharacter(), player2.getPlayerCharacter());
                 GameManager.switchTurn();
             }
 
 
             // Player USE ITEM scenario...
-            if (player1Action.equals("USE ITEM")) {
+            if (playerAction.equals("USE ITEM")) {
                 // Tell them what items they can use (for loop?).
             System.out.println("Which item would you like to use? Your inventory includes...");
 
