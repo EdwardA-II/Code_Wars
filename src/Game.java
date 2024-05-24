@@ -20,8 +20,11 @@ public class Game {
 //        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 //            // System.out.println("Audio File NOT FOUND!");
 //
-//            e.printStackTrace(); //Tell me which exact error it throws.
+//            e.printStackTrace(); // May need to change to tell me which exact error it throws.
+                                        // or maybe not since it should work with the simple print statement above.
 //        }
+
+        GameManager gameManager = new GameManager();
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
         
@@ -108,7 +111,8 @@ public class Game {
      * @throws LineUnavailableException
      * 
      */
-    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {   // Make this into a CLASS? bc you need to...
+    public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        // Make this into a CLASS? bc you need to...
         // Play different game music depending on the scenario.
         // Pass in a "String status" parameter that tells the method which one to play and stop.
 
@@ -277,9 +281,6 @@ public class Game {
 
             System.out.println();
 
-
-
-            
             playerAction = action.nextLine();
             userInputValid(playerAction, action);
             System.out.println();
@@ -308,19 +309,19 @@ public class Game {
 
     /**
      * If the player opts to attack, damage their opponent.
-     * @param player1
-     * @param player2
+     * @param currentPlayer
+     * @param otherPlayer
      */
-    public static void pvpAttack(Characters player1, Characters player2) {
-        System.out.println(player1.getName() + " attacks " + player2.getName() + " for " 
-        + player1.getAttack() + " DAMAGE!");
+    public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
+        System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
+        + currentPlayer.getAttack() + " DAMAGE!");
 
-        int player2Health = player2.getHealth();
-        int player2Defense = player2.getDefense();
-        int player1Attack = player1.getAttack();
+        int player2Health = otherPlayer.getHealth();
+        int player2Defense = otherPlayer.getDefense();
+        int player1Attack = currentPlayer.getAttack();
 
-        player1.attack(player2Health, player2Defense);
-        player2.takeDamage(player1Attack);
+        currentPlayer.attack(player2Health, player2Defense);
+        otherPlayer.takeDamage(player1Attack);
     }
 
     /**
