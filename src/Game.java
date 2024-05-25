@@ -11,7 +11,7 @@ public class Game {
         // UNCOMMENT THIS BLOCK TO PLAY MUSIC.
         // Blocked off to avoid music playing everytime I run the code.
         // Move this into another method?
-        
+
         // Play the Main Menu music.
 //        try
 //        {
@@ -27,7 +27,7 @@ public class Game {
         GameManager gameManager = new GameManager();
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
-        
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
         String userInput = sc.nextLine();
@@ -61,14 +61,14 @@ public class Game {
 
         // Begin the match!
         playerVsPlayerMatch(player1, player2); // Update to include multi-player matches as well.
-        
+
         sc.close();
 
     }
 
     /**
      * Check if input is valid by seeing if it matches all the possible correct inputs.
-     * 
+     *
      * @param input - What the user entered into the terminal.
      * @param sc - The scanner to read the new input from the user (repeatedly).
      */
@@ -99,17 +99,17 @@ public class Game {
             System.out.println("INVALID INPUT! Please try again: ");
             input = sc.nextLine();
         }
-        
+
 
     }
 
     /**
      * Plays in-game music depending on what's happening.
-     * 
+     *
      * @throws IOException
      * @throws UnsupportedAudioFileException
      * @throws LineUnavailableException
-     * 
+     *
      */
     public static void playMusic() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         // Make this into a CLASS? bc you need to...
@@ -133,15 +133,15 @@ public class Game {
 
     /**
      * Prints the rules and mechnics of the game to the player via the console.
-     * 
+     *
      */
     public static void printRulesMechanics() throws FileNotFoundException {
-        // Create a File object to hold the Rules + Mechanics file. 
+        // Create a File object to hold the Rules + Mechanics file.
         File rulesMechs = new File("Rules + Mechanics.txt");
 		Scanner textReader = new Scanner(rulesMechs);
-		
+
 		// Open the file and print each line until done.
-		while (textReader.hasNext()) 
+		while (textReader.hasNext())
         {
 			System.out.println(textReader.nextLine());
         }
@@ -151,15 +151,15 @@ public class Game {
 
     /**
      * Prints the Classes and Characters of the game to the player via the console.
-     * 
+     *
      */
     public static void printClassesCharacters() throws FileNotFoundException {
-        // Create a File object to hold the Rules + Mechanics file. 
+        // Create a File object to hold the Rules + Mechanics file.
         File characterInfo = new File("Classes + Character Information.txt");
 		Scanner fileReader = new Scanner(characterInfo);
-		
+
 		// Open the file and print each line until done.
-		while (fileReader.hasNext()) 
+		while (fileReader.hasNext())
         {
 			System.out.println(fileReader.nextLine());
         }
@@ -169,7 +169,7 @@ public class Game {
 
     /**
      * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
-     * 
+     *
      * @param sc - Scanner that reads the input from the user.
      * @param charactersList - ArrayList that holds all the Characters.
      * @return player - Character that the player chose.
@@ -185,7 +185,7 @@ public class Game {
         // Create "PlaceHolder' objects to be used within the for loop.
         Characters playersCharacterChoice = new Tank("Placeholder");
         Player thisPlayer = new Player();
-        
+
         for (int i = 0; i < charactersList.size(); i++) {
             Characters currentCharacter = charactersList.get(i);
 
@@ -208,16 +208,16 @@ public class Game {
         System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
         System.out.println();
 
-        
+
         return playersCharacterChoice; // Return Character.
     }
 
 
     /**
      * Method to create all of the Characters from the Character Interface.
-     * 
+     *
      * @return allCharacters - An array of all Character objects in the game.
-     */ 
+     */
     public static ArrayList<Characters> createCharacters() {
         // Character ArrayList
         ArrayList<Characters> allCharacters = new ArrayList<>();
@@ -231,7 +231,7 @@ public class Game {
         allCharacters.add(RonnieColeman);
 
         // Create the MARKSMEN.
-        
+
 
         // Create the THIEVES.
 
@@ -246,12 +246,12 @@ public class Game {
         return allCharacters;
     }
 
-    
-    /** 
+
+    /**
      * This method displays the match between players.
      * @param player1 - The Character that Player 1 selected.
      * @param player2 - The Character that Player 2 selected.
-     * 
+     *
      */
     public static void playerVsPlayerMatch(Player player1, Player player2) {
 
@@ -263,6 +263,16 @@ public class Game {
         String playerAction = "";
 
         String p1p2 = "Player 1"; //TODO: Rename this variable later?
+
+        // I think I need some sort of functionality here to check who last went and swap it over similar to how
+            // switchTurn does it in GameManager. Or...I could add that functionality to GameChanger.switchTurn
+            // itself and have it RETURN who the currentPlayer is. MMMMMmmm...
+
+        // Create a Player object to assign whose turn it is.
+        // Player 1 always goes first (for now).
+
+        Player currentPlayer = player1;
+        Player otherPlayer = player2;
 
 
         // Player 1's scenario.
@@ -276,7 +286,6 @@ public class Game {
             }
             else if ( p1p2.equals("Player 2") ) {
                 p1p2 = "Player 1";
-
             }
 
             System.out.println();
@@ -285,25 +294,30 @@ public class Game {
             userInputValid(playerAction, action);
             System.out.println();
 
+            // Could use a Player array and have switchTurn return both current and other player as an array.
+            Player[] plarr =
+
+
 
             // Player ATTACKS scenario...
             if (playerAction.equals("ATTACK")) {
-                pvpAttack(player1.getPlayerCharacter(), player2.getPlayerCharacter());
-                GameManager.switchTurn();
+                pvpAttack(currentPlayer.getPlayerCharacter(), otherPlayer.getPlayerCharacter());
+                // Call GameManager static method switchPlayerArray with currentPlayer and otherPlayer
+                    // so you can switch players back and forth HERE in this method as well.
             }
 
 
             // Player USE ITEM scenario...
             if (playerAction.equals("USE ITEM")) {
                 // Tell them what items they can use (for loop?).
-            System.out.println("Which item would you like to use? Your inventory includes...");
+                System.out.println("Which item would you like to use? Your inventory includes...");
 
-            // And them use them accordingly... but how tho?
-            // checkTurn method goes here;
+                // And them use them accordingly... but how tho?
+            // switchTurn goes here;
             }
         }
 
-        
+
     }
 
 
