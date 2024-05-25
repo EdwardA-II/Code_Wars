@@ -8,7 +8,7 @@ public class GameManager {
     static Player currPlayer = null;
 
     // Create a Player array to return both the current player and the other, non-current player.
-    static  Player[] switchPlayersArray = new Player[2];
+    static Player[] switchPlayersArray = new Player[2];
 
     //TODO: Need to somehow assign currPlayer to Player1 (players.get(0)). But it's null here...
     // Update: I don't think I even need this static variable since I use another variable in switchTurn...
@@ -52,19 +52,29 @@ public class GameManager {
     }
 
     static Player[] switchTurn(Player currentPlayer, Player otherPlayer) {
-        // If the current player is player 1, switch it to player 2.
+        // If the current player is player 1, switch currentPlayer to player 2.
         // If it isn't, then current player *is* player 2. So, switch it to player 1.
+
+        Characters currentPlayerCharacter = currentPlayer.getPlayerCharacter(); // Might need to go deeper (pause) and compare character names as well. We shall see
+        Characters player1Character = players.get(1).getPlayerCharacter();
+        Characters player2Character = players.get(2).getPlayerCharacter();
+
+//        if ( currentPlayerCharacter.equals(player1Character) ) {
+//            GameManager.currPlayer = players.get(2);
+        // Do I even need an if-else block...?
+            // Update current and other player objects.
+            Player hold = currentPlayer;
+            currentPlayer = otherPlayer;
+            otherPlayer = hold;
+
+//        }
+//        else {
+//            GameManager.currPlayer = players.get(1);
+
+//        }
 
         switchPlayersArray[0] = currentPlayer;
         switchPlayersArray[1] = otherPlayer;
-
-        if ( currPlayer == players.get(1) ) {
-            GameManager.currPlayer = players.get(2); // Don't need to use GameManager, but it makes it
-                                                        // more understandable to me.
-        }
-        else {
-            GameManager.currPlayer = players.get(1);
-        }
 
         return switchPlayersArray;
     }

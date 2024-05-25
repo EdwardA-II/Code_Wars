@@ -36,12 +36,13 @@ public class Game {
         userInputValid(userInput, sc);
 
         // Print rules and mechanics.
-        System.out.println();
-        printRulesMechanics();
+//        System.out.println();
+//        printRulesMechanics();
 
         // Print Classes and Characters.
-        System.out.println();
-        printClassesCharacters();
+//        System.out.println();
+//        printClassesCharacters();
+        // idk why but these two methods are randomly giving me issues again. smh.
 
         // Create Characters.
         ArrayList<Characters> allCharacters = createCharacters();
@@ -262,15 +263,10 @@ public class Game {
         // Will need to rename this to be something more general since it will not be specific to Player.
         String playerAction = "";
 
-        String p1p2 = "Player 1"; //TODO: Rename this variable later?
-
-        // I think I need some sort of functionality here to check who last went and swap it over similar to how
-            // switchTurn does it in GameManager. Or...I could add that functionality to GameChanger.switchTurn
-            // itself and have it RETURN who the currentPlayer is. MMMMMmmm...
+        String p1p2 = "Player 1"; // TODO: Rename this variable later?
 
         // Create a Player object to assign whose turn it is.
         // Player 1 always goes first (for now).
-
         Player currentPlayer = player1;
         Player otherPlayer = player2;
 
@@ -294,16 +290,22 @@ public class Game {
             userInputValid(playerAction, action);
             System.out.println();
 
-            // Could use a Player array and have switchTurn return both current and other player as an array.
-            Player[] plarr =
+            // Okay, I need to find a way to update which player is currentPlayer and which is otherPlayer.
+            // Because now it's not changing here, only in GameManager.
 
+            // switchTurn return both current and other player as an array.
+            Player[] playersArray = GameManager.switchPlayersArray;
+//            System.out.println(Arrays.toString(playersArray.)); // Checking value of array.
 
 
             // Player ATTACKS scenario...
             if (playerAction.equals("ATTACK")) {
                 pvpAttack(currentPlayer.getPlayerCharacter(), otherPlayer.getPlayerCharacter());
-                // Call GameManager static method switchPlayerArray with currentPlayer and otherPlayer
+                // Call GameManager static variable switchPlayerArray with currentPlayer and otherPlayer
                     // so you can switch players back and forth HERE in this method as well.
+                GameManager.switchTurn(currentPlayer, otherPlayer);
+                currentPlayer = playersArray[0];
+                otherPlayer = playersArray[1];
             }
 
 
