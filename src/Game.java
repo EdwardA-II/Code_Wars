@@ -33,7 +33,8 @@ public class Game {
         String userInput = sc.nextLine();
 
         // Check if input is valid.
-        userInputValid(userInput, sc);
+        // Updated to receive new value after being validated. May need to change back to no reassignment.
+        userInput = userInputValid(userInput, sc);
 
         // Print rules and mechanics.
 //        System.out.println();
@@ -72,8 +73,10 @@ public class Game {
      *
      * @param input - What the user entered into the terminal.
      * @param sc - The scanner to read the new input from the user (repeatedly).
+     *           
+     * @return input - the player's choices(s) after being verified as valid input. 
      */
-    public static void userInputValid(String input, Scanner sc) {
+    public static String userInputValid(String input, Scanner sc) {
         // Hold all possible correct inputs to check.
         ArrayList<String> menuInputs = new ArrayList<>(); // Menu(s)
         ArrayList<String> characterInputs = new ArrayList<>(); // Characters
@@ -95,11 +98,12 @@ public class Game {
         actionInputs.add("USE ITEM");
 
         // Repeatedly tell them that their entry is invalid.
-        while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input))
-        {
+        while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input)) {
             System.out.println("INVALID INPUT! Please try again: ");
             input = sc.nextLine();
         }
+        
+        return input;
 
 
     }
@@ -179,13 +183,15 @@ public class Game {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         String userSelect = sc.nextLine();
-        userInputValid(userSelect, sc);
 
-        // Iterate through Characters and assign the corresponding one.
+        // Need to reassign the user's input, otherwise if user enters wrong name, Placeholder is never changed.
+        userSelect = userInputValid(userSelect, sc);
 
-        // Create "PlaceHolder' objects to be used within the for loop.
-        Characters playersCharacterChoice = new Tank("Placeholder");
+        // Right now, it works just fine. But I am not sure how it will behave when there are other, non-Tank
+            // Character classes...It should just reassign it to the correct one. We shall see.
+        Characters playersCharacterChoice = new Tank("");
         Player thisPlayer = new Player();
+
 
         for (int i = 0; i < charactersList.size(); i++) {
             Characters currentCharacter = charactersList.get(i);
@@ -195,16 +201,10 @@ public class Game {
                 thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
                 GameManager.setPlayers(thisPlayer); // Add the Player object to the GameManager.
             }
-            /* TODO: Looks like if you enter the name wrong, it says "You selected: [ Placeholder ]" as if it didn't recognize
-                to go back through the characterslist and check again.
-                Might need to make this a separate method to check through the characters list. Or use .contains()?
-
-                TODO: Oooo...maybe use Map for Player-Character pairs instead of different lists?
-
-                TODO: Also I wanna use indexOf to avoid a for loop. This might solve my first problem as well.
-             */
-
         }
+
+        //TODO: Oooo...maybe use Map for Player-Character pairs instead of different lists?
+
 
         System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
         System.out.println();
@@ -224,7 +224,7 @@ public class Game {
         ArrayList<Characters> allCharacters = new ArrayList<>();
 
         // Create the TANKS.
-        Tank Atlas = new Tank("ATLAS");
+        Characters Atlas = new Tank("ATLAS");
         Characters RonnieColeman = new Tank("RONNIE COLEMAN");
         // CharacterS not Character to avoid it confusing the class for the Character wrapper class.
 
@@ -256,6 +256,10 @@ public class Game {
      */
     public static void playerVsPlayerMatch(Player player1, Player player2) {
 
+        Characters player1Character = player1.getPlayerCharacter();
+        Characters player2Character = player2.getPlayerCharacter();
+
+
         Scanner action = new Scanner(System.in);
 
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
@@ -273,6 +277,9 @@ public class Game {
 
         // Player 1's scenario.
         while ( !(playerAction.equals("QUIT")) ) {
+
+            System.out.println(player1Character.getName() + " HP: " + player1Character.getHealth());
+            System.out.println(player2Character.getName() + " HP: " + player2Character.getHealth());
 
             System.out.print(p1p2 + " make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
