@@ -6,10 +6,6 @@ public class GameManager {
     static Player[] PlayersArray = new Player[2];
 
 
-    public GameManager() {
-        // This is a fucking constructor.
-    }
-
     // Temporary method that I may or may not use.
     static public void startGame() {
 
