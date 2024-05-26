@@ -16,7 +16,7 @@ public class GameManager {
     }
 
     public void getGameStatus(String status) {
-        this.gameStatus = status;
+        gameStatus = status;
     }
 
     /*
@@ -24,10 +24,10 @@ public class GameManager {
      */
     public Boolean gameOver(String gameStatus) {
         if (gameStatus.equals("Game Over")) {
-            this.gameEnd = true;
+            gameEnd = true;
         }
         else {
-            this.gameEnd = false;
+            gameEnd = false;
         }
 
         return gameEnd;

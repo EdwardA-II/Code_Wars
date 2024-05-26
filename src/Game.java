@@ -263,7 +263,7 @@ public class Game {
 
         String playerAction = "";
 
-        String whoseTurn = "Player 1"; // TODO: Rename this variable later?
+        String whoseTurn = "Player 1";
 
         // Create a Player object to assign whose turn it is.
         // Player 1 always goes first (for now).
