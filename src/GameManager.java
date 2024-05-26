@@ -11,18 +11,18 @@ public class GameManager {
     }
 
     // Temporary method that I may or may not use.
-    public void startGame() {
+    static public void startGame() {
 
     }
 
-    public void getGameStatus(String status) {
+    static public void getGameStatus(String status) {
         gameStatus = status;
     }
 
     /*
      * Conditions to end the game given the status as reported back from the GameInitializer class.
      */
-    public Boolean gameOver(String gameStatus) {
+    static public Boolean gameOver(String gameStatus) {
         if (gameStatus.equals("Game Over")) {
             gameEnd = true;
         }
