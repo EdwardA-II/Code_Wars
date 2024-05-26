@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.*;
 import javax.sound.sampled.*;
 
@@ -255,16 +256,13 @@ public class Game {
      *
      */
     public static void playerVsPlayerMatch(Player player1, Player player2) {
+        Scanner action = new Scanner(System.in);
 
         Characters player1Character = player1.getPlayerCharacter();
         Characters player2Character = player2.getPlayerCharacter();
 
-
-        Scanner action = new Scanner(System.in);
-
         System.out.println("* * * * * * * * * * MATCH BEGIN * * * * * * * * * *");
 
-        // Will need to rename this to be something more general since it will not be specific to Player.
         String playerAction = "";
 
         String p1p2 = "Player 1"; // TODO: Rename this variable later?
@@ -273,6 +271,12 @@ public class Game {
         // Player 1 always goes first (for now).
         Player currentPlayer = player1;
         Player otherPlayer = player2;
+
+        // Assign GameManager static variable switchPlayerArray to a local variable to use.
+        Player[] playersArray = GameManager.switchPlayersArray;
+
+        // TODO: Might not need a local array since I should be able to use the static array in GM. Hmm...
+//        Player pl = GameManager.switchPlayersArray[1];
 
 
         // Player 1's scenario.
@@ -283,6 +287,7 @@ public class Game {
 
             System.out.print(p1p2 + " make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
+            System.out.println();
 
             if ( p1p2.equals("Player 1") ) {
                 p1p2 = "Player 2";
@@ -291,25 +296,13 @@ public class Game {
                 p1p2 = "Player 1";
             }
 
-            System.out.println();
-
             playerAction = action.nextLine();
             userInputValid(playerAction, action);
             System.out.println();
 
-            // Okay, I need to find a way to update which player is currentPlayer and which is otherPlayer.
-            // Because now it's not changing here, only in GameManager.
-
-            // switchTurn return both current and other player as an array.
-            Player[] playersArray = GameManager.switchPlayersArray;
-//            System.out.println(Arrays.toString(playersArray.)); // Checking value of array.
-
-
             // Player ATTACKS scenario...
             if (playerAction.equals("ATTACK")) {
                 pvpAttack(currentPlayer.getPlayerCharacter(), otherPlayer.getPlayerCharacter());
-                // Call GameManager static variable switchPlayerArray with currentPlayer and otherPlayer
-                    // so you can switch players back and forth HERE in this method as well.
                 GameManager.switchTurn(currentPlayer, otherPlayer);
                 currentPlayer = playersArray[0];
                 otherPlayer = playersArray[1];
@@ -338,6 +331,7 @@ public class Game {
     public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
+        System.out.println();
 
         int player2Health = otherPlayer.getHealth();
         int player2Defense = otherPlayer.getDefense();
