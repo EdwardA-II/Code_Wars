@@ -272,12 +272,6 @@ public class Game {
         Player currentPlayer = player1;
         Player otherPlayer = player2;
 
-        // Assign GameManager static variable switchPlayerArray to a local variable to use.
-        Player[] playersArray = GameManager.switchPlayersArray;
-
-        // TODO: Might not need a local array since I should be able to use the static array in GM. Hmm...
-//        Player pl = GameManager.switchPlayersArray[1];
-
 
         // Player 1's scenario.
         while ( !(playerAction.equals("QUIT")) ) {
@@ -304,8 +298,8 @@ public class Game {
             if (playerAction.equals("ATTACK")) {
                 pvpAttack(currentPlayer.getPlayerCharacter(), otherPlayer.getPlayerCharacter());
                 GameManager.switchTurn(currentPlayer, otherPlayer);
-                currentPlayer = playersArray[0];
-                otherPlayer = playersArray[1];
+                currentPlayer = GameManager.switchPlayersArray[0];
+                otherPlayer = GameManager.switchPlayersArray[1];
             }
 
 

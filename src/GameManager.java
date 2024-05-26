@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class GameManager {
 
     String gameStatus = null;
@@ -39,7 +37,7 @@ public class GameManager {
         return gameEnd;
     }
 
-    static Player[] switchTurn(Player currentPlayer, Player otherPlayer) {
+    static void switchTurn(Player currentPlayer, Player otherPlayer) {
         /* Swap by assigning the currentPlayer object to a temp Player object.
         * Then, assining currentPlayer to the otherPlayer since it is no longer their turn.
         * Finally, assign otherPlayer to the temp object, which holds the previous currentPlayer object.
@@ -50,8 +48,6 @@ public class GameManager {
 
         switchPlayersArray[0] = currentPlayer;
         switchPlayersArray[1] = otherPlayer;
-
-        return switchPlayersArray;
     }
 
     // Adds the Players into an arraylist for later use.
