@@ -1,13 +1,9 @@
 public class GameManager {
 
-    String gameStatus = null;
-    Boolean gameEnd = null;
-//    static ArrayList<Player> players = new ArrayList<>(2);
-    // TODO: I don't even think I need a players ArrayList anymore since I don't use the elements within them.
-    //  Clean this up more later as well as teh setPlayers method. Hm. Wow.
-
+    static String gameStatus = null;
+    static Boolean gameEnd = null;
     // Create a Player array to return both the current player and the other, non-current player.
-    static Player[] switchPlayersArray = new Player[2];
+    static Player[] PlayersArray = new Player[2];
 
 
     public GameManager() {
@@ -39,20 +35,15 @@ public class GameManager {
 
     static void switchTurn(Player currentPlayer, Player otherPlayer) {
         /* Swap by assigning the currentPlayer object to a temp Player object.
-        * Then, assining currentPlayer to the otherPlayer since it is no longer their turn.
+        * Then, assigning currentPlayer to the otherPlayer since it is no longer their turn.
         * Finally, assign otherPlayer to the temp object, which holds the previous currentPlayer object.
         */
         Player hold = currentPlayer;
         currentPlayer = otherPlayer;
         otherPlayer = hold;
 
-        switchPlayersArray[0] = currentPlayer;
-        switchPlayersArray[1] = otherPlayer;
-    }
-
-    // Adds the Players into an arraylist for later use.
-    public static void setPlayers(Player incomingPlayer) {
-//        players.add(incomingPlayer);
+        PlayersArray[0] = currentPlayer;
+        PlayersArray[1] = otherPlayer;
     }
 
 }

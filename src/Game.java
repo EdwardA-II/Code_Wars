@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.SQLOutput;
 import java.util.*;
 import javax.sound.sampled.*;
 
@@ -200,7 +199,6 @@ public class Game {
             if ( userSelect.equals(currentCharacter.getName()) ) {
                 playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
                 thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
-                GameManager.setPlayers(thisPlayer); // Add the Player object to the GameManager.
             }
         }
 
@@ -265,7 +263,7 @@ public class Game {
 
         String playerAction = "";
 
-        String p1p2 = "Player 1"; // TODO: Rename this variable later?
+        String whoseTurn = "Player 1"; // TODO: Rename this variable later?
 
         // Create a Player object to assign whose turn it is.
         // Player 1 always goes first (for now).
@@ -279,15 +277,15 @@ public class Game {
             System.out.println(player1Character.getName() + " HP: " + player1Character.getHealth());
             System.out.println(player2Character.getName() + " HP: " + player2Character.getHealth());
 
-            System.out.print(p1p2 + " make your move: ");
+            System.out.print(whoseTurn + " make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
             System.out.println();
 
-            if ( p1p2.equals("Player 1") ) {
-                p1p2 = "Player 2";
+            if ( whoseTurn.equals("Player 1") ) {
+                whoseTurn = "Player 2";
             }
-            else if ( p1p2.equals("Player 2") ) {
-                p1p2 = "Player 1";
+            else if ( whoseTurn.equals("Player 2") ) {
+                whoseTurn = "Player 1";
             }
 
             playerAction = action.nextLine();
@@ -298,8 +296,8 @@ public class Game {
             if (playerAction.equals("ATTACK")) {
                 pvpAttack(currentPlayer.getPlayerCharacter(), otherPlayer.getPlayerCharacter());
                 GameManager.switchTurn(currentPlayer, otherPlayer);
-                currentPlayer = GameManager.switchPlayersArray[0];
-                otherPlayer = GameManager.switchPlayersArray[1];
+                currentPlayer = GameManager.PlayersArray[0];
+                otherPlayer = GameManager.PlayersArray[1];
             }
 
 
