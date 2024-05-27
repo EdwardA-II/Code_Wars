@@ -187,9 +187,7 @@ public class Game {
         // Need to reassign the user's input, otherwise if user enters wrong name, Placeholder is never changed.
         userSelect = userInputValid(userSelect, sc);
 
-        // Right now, it works just fine. But I am not sure how it will behave when there are other, non-Tank
-            // Character classes...It should just reassign it to the correct one. We shall see.
-        Characters playersCharacterChoice = new Tank("");
+        Characters playersCharacterChoice = null;
         Player thisPlayer = new Player();
 
 
@@ -201,8 +199,6 @@ public class Game {
                 thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
             }
         }
-
-        //TODO: Oooo...maybe use Map for Player-Character pairs instead of different lists?
 
 
         System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
