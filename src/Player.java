@@ -18,10 +18,21 @@ public class Player {
     }
 
     public void setCharacterName(String characterName) {
-        this.characterName = characterName;
+        this.characterName = playerCharacter.getName();
     }
 
     public String getCharacterName() {
         return this.characterName;
+    }
+
+    public Boolean characterIsDead(int characterHealth) {
+        Boolean isDead = false;
+
+        if (characterHealth <= 0) {
+            isDead = true;
+
+        }
+
+        return isDead;
     }
 }

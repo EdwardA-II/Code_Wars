@@ -24,13 +24,13 @@ public class Game {
                                         // or maybe not since it should work with the simple print statement above.
 //        }
 
-        GameManager gameManager = new GameManager();
-
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
         String userInput = sc.nextLine();
+        System.out.println();
+
 
         // Check if input is valid.
         // Updated to receive new value after being validated. May need to change back to no reassignment.
@@ -58,6 +58,7 @@ public class Game {
         Characters player1Character = findCharacterSelection(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
+        System.out.println("*PLAYER 2*");
         String player2CharacterChoice = promptForCharacter(sc);
         Characters player2Character = findCharacterSelection(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
@@ -257,7 +258,7 @@ public class Game {
 
         String playerAction = "";
 
-        String whoseTurn = "Player 1";
+        String whoseTurn = "*PLAYER 1*";
 
         // Create a Player object to assign whose turn it is.
         // Player 1 always goes first (for now).
@@ -267,23 +268,27 @@ public class Game {
 
         // Player 1's scenario.
         while ( !(playerAction.equals("QUIT")) ) {
-
+            System.out.println();
+            System.out.println("------------------------");
             System.out.println(player1Character.getName() + " HP: " + player1Character.getHealth());
             System.out.println(player2Character.getName() + " HP: " + player2Character.getHealth());
+            System.out.println("------------------------");
+            System.out.println();
 
-            System.out.print(whoseTurn + " make your move: ");
+            System.out.println(whoseTurn);
+            System.out.print("Make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
             System.out.println();
 
-            if ( whoseTurn.equals("Player 1") ) {
-                whoseTurn = "Player 2";
+            if ( whoseTurn.equals("*PLAYER 1*") ) {
+                whoseTurn = "*PLAYER 2*";
             }
-            else if ( whoseTurn.equals("Player 2") ) {
-                whoseTurn = "Player 1";
+            else if ( whoseTurn.equals("*PLAYER 2*") ) {
+                whoseTurn = "*PLAYER 1*";
             }
 
             playerAction = action.nextLine();
-            userInputValid(playerAction, action);
+            playerAction = userInputValid(playerAction, action);
             System.out.println();
 
             // Player ATTACKS scenario...
@@ -317,7 +322,6 @@ public class Game {
     public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
-        System.out.println();
 
         int player2Health = otherPlayer.getHealth();
         int player2Defense = otherPlayer.getDefense();
