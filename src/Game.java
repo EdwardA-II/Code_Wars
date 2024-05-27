@@ -55,11 +55,11 @@ public class Game {
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
         String player1CharacterChoice = promptForCharacter(sc);
-        Characters player1Character = assignCharacterToPlayer(allCharacters, player1CharacterChoice);
+        Characters player1Character = findCharacterSelection(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
         String player2CharacterChoice = promptForCharacter(sc);
-        Characters player2Character = assignCharacterToPlayer(allCharacters, player2CharacterChoice);
+        Characters player2Character = findCharacterSelection(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
 
         // Begin the match!
@@ -193,7 +193,7 @@ public class Game {
         return userSelect;
     }
 
-    private static Characters assignCharacterToPlayer(ArrayList<Characters> charactersList, String playerCharacterChoice) {
+    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
         Characters playersCharacterChoice = null;
 
         for (int i = 0; i < charactersList.size(); i++) {
