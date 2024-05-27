@@ -54,11 +54,12 @@ public class Game {
 
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
-        Characters player1Character = promptForCharacter(sc, allCharacters);
+        String player1CharacterChoice = promptForCharacter(sc);
+        Characters player1Character = assignCharacterToPlayer(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
-        System.out.println("*PLAYER 2*");
-        Characters player2Character = promptForCharacter(sc, allCharacters);
+        String player2CharacterChoice = promptForCharacter(sc);
+        Characters player2Character = assignCharacterToPlayer(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
 
         // Begin the match!
@@ -176,36 +177,33 @@ public class Game {
      * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
      *
      * @param sc - Scanner that reads the input from the user.
-     * @param charactersList - ArrayList that holds all the Characters.
-     * @return player - Character that the player chose.
+     * @return userSelect - Character Name that the player chose.
      */
-    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList) {
+    public static String promptForCharacter(Scanner sc) {
         // Prompt for Character Selection.
         System.out.print("Choose your CHARACTER (ALL CAPS!): ");
         String userSelect = sc.nextLine();
 
-        // Need to reassign the user's input, otherwise if user enters wrong name, Placeholder is never changed.
+        // Need to reassign the user's input, otherwise if user enters wrong name, userSelect is never changed.
         userSelect = userInputValid(userSelect, sc);
 
-        Characters playersCharacterChoice = null;
-        Player thisPlayer = new Player();
+        System.out.println("You selected: " + "[ " + userSelect + " ]");
+        System.out.println();
 
+        return userSelect;
+    }
+
+    private static Characters assignCharacterToPlayer(ArrayList<Characters> charactersList, String playerCharacterChoice) {
+        Characters playersCharacterChoice = null;
 
         for (int i = 0; i < charactersList.size(); i++) {
             Characters currentCharacter = charactersList.get(i);
 
-            if ( userSelect.equals(currentCharacter.getName()) ) {
+            if ( playerCharacterChoice.equals(currentCharacter.getName()) ) {
                 playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
-                thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
             }
         }
-
-
-        System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
-        System.out.println();
-
-
-        return playersCharacterChoice; // Return Character.
+        return playersCharacterChoice;
     }
 
 
