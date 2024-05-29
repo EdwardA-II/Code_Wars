@@ -175,6 +175,39 @@ public class Game {
     }
 
     /**
+     * Method to create all of the Characters from the Character Interface.
+     *
+     * @return allCharacters - An array of all Character objects in the game.
+     */
+    public static ArrayList<Characters> createCharacters() {
+        // Character ArrayList
+        ArrayList<Characters> allCharacters = new ArrayList<>();
+
+        // Create the TANKS.
+        Characters Atlas = new Tank("ATLAS");
+        Characters RonnieColeman = new Tank("RONNIE COLEMAN");
+        // CharacterS not Character to avoid it confusing the class for the Character wrapper class.
+
+        allCharacters.add(Atlas);
+        allCharacters.add(RonnieColeman);
+
+        // Create the MARKSMEN.
+
+
+        // Create the THIEVES.
+
+
+        // Create the SOLDIERS.
+
+
+        // Create the MAGES.
+
+
+
+        return allCharacters;
+    }
+
+    /**
      * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
      *
      * @param sc - Scanner that reads the input from the user.
@@ -207,39 +240,6 @@ public class Game {
         return playersCharacterChoice;
     }
 
-
-    /**
-     * Method to create all of the Characters from the Character Interface.
-     *
-     * @return allCharacters - An array of all Character objects in the game.
-     */
-    public static ArrayList<Characters> createCharacters() {
-        // Character ArrayList
-        ArrayList<Characters> allCharacters = new ArrayList<>();
-
-        // Create the TANKS.
-        Characters Atlas = new Tank("ATLAS");
-        Characters RonnieColeman = new Tank("RONNIE COLEMAN");
-        // CharacterS not Character to avoid it confusing the class for the Character wrapper class.
-
-        allCharacters.add(Atlas);
-        allCharacters.add(RonnieColeman);
-
-        // Create the MARKSMEN.
-
-
-        // Create the THIEVES.
-
-
-        // Create the SOLDIERS.
-
-
-        // Create the MAGES.
-
-
-
-        return allCharacters;
-    }
 
 
     /**
