@@ -70,6 +70,7 @@ public class Game {
 
     }
 
+
     /**
      * Check if input is valid by seeing if it matches all the possible correct inputs.
      *
@@ -110,6 +111,7 @@ public class Game {
 
     }
 
+
     /**
      * Plays in-game music depending on what's happening.
      *
@@ -138,6 +140,7 @@ public class Game {
         // musicScanner.close();
     }
 
+
     /**
      * Prints the rules and mechnics of the game to the player via the console.
      *
@@ -156,6 +159,7 @@ public class Game {
         textReader.close();
     }
 
+
     /**
      * Prints the Classes and Characters of the game to the player via the console.
      *
@@ -173,6 +177,7 @@ public class Game {
 
         fileReader.close();
     }
+
 
     /**
      * Method to create all of the Characters from the Character Interface.
@@ -207,6 +212,7 @@ public class Game {
         return allCharacters;
     }
 
+
     /**
      * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
      *
@@ -227,6 +233,7 @@ public class Game {
         return userSelect;
     }
 
+
     private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
         Characters playersCharacterChoice = null;
 
@@ -239,7 +246,6 @@ public class Game {
         }
         return playersCharacterChoice;
     }
-
 
 
     /**
@@ -330,6 +336,7 @@ public class Game {
         currentPlayer.attack(player2Health, player2Defense);
         otherPlayer.takeDamage(player1Attack);
     }
+
 
     /**
      * If the player opts to use an item, use the item duh.
