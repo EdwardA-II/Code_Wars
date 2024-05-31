@@ -24,13 +24,13 @@ public class Game {
                                         // or maybe not since it should work with the simple print statement above.
 //        }
 
-        GameManager gameManager = new GameManager();
-
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
         String userInput = sc.nextLine();
+        System.out.println();
+
 
         // Check if input is valid.
         // Updated to receive new value after being validated. May need to change back to no reassignment.
@@ -54,11 +54,13 @@ public class Game {
 
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
-        Characters player1Character = promptForCharacter(sc, allCharacters);
+        String player1CharacterChoice = promptForCharacter(sc);
+        Characters player1Character = findCharacterSelection(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
         System.out.println("*PLAYER 2*");
-        Characters player2Character = promptForCharacter(sc, allCharacters);
+        String player2CharacterChoice = promptForCharacter(sc);
+        Characters player2Character = findCharacterSelection(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
 
         // Begin the match!
@@ -67,6 +69,7 @@ public class Game {
         sc.close();
 
     }
+
 
     /**
      * Check if input is valid by seeing if it matches all the possible correct inputs.
@@ -100,6 +103,7 @@ public class Game {
         // Repeatedly tell them that their entry is invalid.
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input)) {
             System.out.println("INVALID INPUT! Please try again: ");
+            System.out.println();
             input = sc.nextLine();
         }
         
@@ -107,6 +111,7 @@ public class Game {
 
 
     }
+
 
     /**
      * Plays in-game music depending on what's happening.
@@ -136,6 +141,7 @@ public class Game {
         // musicScanner.close();
     }
 
+
     /**
      * Prints the rules and mechnics of the game to the player via the console.
      *
@@ -154,6 +160,7 @@ public class Game {
         textReader.close();
     }
 
+
     /**
      * Prints the Classes and Characters of the game to the player via the console.
      *
@@ -170,46 +177,6 @@ public class Game {
         }
 
         fileReader.close();
-    }
-
-    /**
-     * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
-     *
-     * @param sc - Scanner that reads the input from the user.
-     * @param charactersList - ArrayList that holds all the Characters.
-     * @return player - Character that the player chose.
-     */
-    public static Characters promptForCharacter(Scanner sc, ArrayList<Characters> charactersList) {
-        // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        String userSelect = sc.nextLine();
-
-        // Need to reassign the user's input, otherwise if user enters wrong name, Placeholder is never changed.
-        userSelect = userInputValid(userSelect, sc);
-
-        // Right now, it works just fine. But I am not sure how it will behave when there are other, non-Tank
-            // Character classes...It should just reassign it to the correct one. We shall see.
-        Characters playersCharacterChoice = new Tank("");
-        Player thisPlayer = new Player();
-
-
-        for (int i = 0; i < charactersList.size(); i++) {
-            Characters currentCharacter = charactersList.get(i);
-
-            if ( userSelect.equals(currentCharacter.getName()) ) {
-                playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
-                thisPlayer.assignCharacter(playersCharacterChoice); // Assign Character to Player once name has been matched.
-            }
-        }
-
-        //TODO: Oooo...maybe use Map for Player-Character pairs instead of different lists?
-
-
-        System.out.println("You selected: " + "[ " + playersCharacterChoice.getName() + " ]");
-        System.out.println();
-
-
-        return playersCharacterChoice; // Return Character.
     }
 
 
@@ -248,6 +215,41 @@ public class Game {
 
 
     /**
+     * Asks the user (player) which Character they want. Assign Character to the PLAYER's choice.
+     *
+     * @param sc - Scanner that reads the input from the user.
+     * @return userSelect - Character Name that the player chose.
+     */
+    public static String promptForCharacter(Scanner sc) {
+        // Prompt for Character Selection.
+        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
+        String userSelect = sc.nextLine();
+
+        // Need to reassign the user's input, otherwise if user enters wrong name, userSelect is never changed.
+        userSelect = userInputValid(userSelect, sc);
+
+        System.out.println("You selected: " + "[ " + userSelect + " ]");
+        System.out.println();
+
+        return userSelect;
+    }
+
+
+    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
+        Characters playersCharacterChoice = null;
+
+        for (int i = 0; i < charactersList.size(); i++) {
+            Characters currentCharacter = charactersList.get(i);
+
+            if ( playerCharacterChoice.equals(currentCharacter.getName()) ) {
+                playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
+            }
+        }
+        return playersCharacterChoice;
+    }
+
+
+    /**
      * This method displays the match between players.
      * @param player1 - The Character that Player 1 selected.
      * @param player2 - The Character that Player 2 selected.
@@ -263,7 +265,7 @@ public class Game {
 
         String playerAction = "";
 
-        String whoseTurn = "Player 1";
+        String whoseTurn = "*PLAYER 1*";
 
         // Create a Player object to assign whose turn it is.
         // Player 1 always goes first (for now).
@@ -273,23 +275,27 @@ public class Game {
 
         // Player 1's scenario.
         while ( !(playerAction.equals("QUIT")) ) {
-
+            System.out.println();
+            System.out.println("------------------------");
             System.out.println(player1Character.getName() + " HP: " + player1Character.getHealth());
             System.out.println(player2Character.getName() + " HP: " + player2Character.getHealth());
+            System.out.println("------------------------");
+            System.out.println();
 
-            System.out.print(whoseTurn + " make your move: ");
+            System.out.println(whoseTurn);
+            System.out.print("Make your move: ");
             System.out.println("Your options are: ATTACK | USE ITEM | SPECIAL MOVE");
             System.out.println();
 
-            if ( whoseTurn.equals("Player 1") ) {
-                whoseTurn = "Player 2";
+            if ( whoseTurn.equals("*PLAYER 1*") ) {
+                whoseTurn = "*PLAYER 2*";
             }
-            else if ( whoseTurn.equals("Player 2") ) {
-                whoseTurn = "Player 1";
+            else if ( whoseTurn.equals("*PLAYER 2*") ) {
+                whoseTurn = "*PLAYER 1*";
             }
 
             playerAction = action.nextLine();
-            userInputValid(playerAction, action);
+            playerAction = userInputValid(playerAction, action);
             System.out.println();
 
             // Player ATTACKS scenario...
@@ -311,6 +317,8 @@ public class Game {
             }
         }
 
+        System.out.println("* * * * * * * * * THANK YOU FOR PLAYING!!! * * * * * * * * *");
+
 
     }
 
@@ -323,7 +331,6 @@ public class Game {
     public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
-        System.out.println();
 
         int player2Health = otherPlayer.getHealth();
         int player2Defense = otherPlayer.getDefense();
@@ -332,6 +339,7 @@ public class Game {
         currentPlayer.attack(player2Health, player2Defense);
         otherPlayer.takeDamage(player1Attack);
     }
+
 
     /**
      * If the player opts to use an item, use the item duh.

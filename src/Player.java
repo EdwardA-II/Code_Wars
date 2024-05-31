@@ -1,8 +1,5 @@
-import java.util.ArrayList;
-
 public class Player {
     Characters playerCharacter = null;
-    String characterName = null;
 
     public Player() {
         // This is a constructor.
@@ -17,11 +14,18 @@ public class Player {
         return this.playerCharacter;
     }
 
-    public void setCharacterName(String characterName) {
-        this.characterName = characterName;
+    public String getCharacterName() {
+        return playerCharacter.getName();
     }
 
-    public String getCharacterName() {
-        return this.characterName;
+    public Boolean characterIsDead(int characterHealth) {
+        Boolean isDead = false;
+
+        if (characterHealth <= 0) {
+            isDead = true;
+
+        }
+
+        return isDead;
     }
 }
