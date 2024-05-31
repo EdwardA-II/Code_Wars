@@ -103,6 +103,7 @@ public class Game {
         // Repeatedly tell them that their entry is invalid.
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input)) {
             System.out.println("INVALID INPUT! Please try again: ");
+            System.out.println();
             input = sc.nextLine();
         }
         
@@ -315,6 +316,8 @@ public class Game {
             // switchTurn goes here;
             }
         }
+
+        System.out.println("* * * * * * * * * THANK YOU FOR PLAYING!!! * * * * * * * * *");
 
 
     }
