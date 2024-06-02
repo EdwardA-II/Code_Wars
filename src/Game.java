@@ -245,6 +245,7 @@ public class Game {
                 playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
             }
         }
+
         return playersCharacterChoice;
     }
 
