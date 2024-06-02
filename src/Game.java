@@ -333,12 +333,12 @@ public class Game {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
 
-        int player2Health = otherPlayer.getHealth();
-        int player2Defense = otherPlayer.getDefense();
-        int player1Attack = currentPlayer.getAttack();
+        int otherPlayerHealth = otherPlayer.getHealth();
+        int otherPlayerDefense = otherPlayer.getDefense();
+        int currentPlayerAttack = currentPlayer.getAttack();
 
-        currentPlayer.attack(player2Health, player2Defense);
-        otherPlayer.takeDamage(player1Attack);
+        currentPlayer.attack(otherPlayerHealth, otherPlayerDefense);
+        otherPlayer.takeDamage(currentPlayerAttack);
     }
 
 

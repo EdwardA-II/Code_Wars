@@ -39,8 +39,7 @@ public interface Characters {
      * Takes in DAMAGE from the OPPONENT.
      * 
      * @param damageTaken - the DAMAGE done by the OPPONENT.
-     * 
-     * @return The PLAYER's health their OPPONENT's attack. 
+     *
      */
     public void takeDamage(int damageTaken);
 
