@@ -235,16 +235,16 @@ public class Game {
     }
 
 
-    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
-        Characters playersCharacterChoice = null;
+    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterName) {
+        Characters playersCharacter = null;
 
         for (Characters currentCharacter : charactersList) {
-            if (playerCharacterChoice.equals(currentCharacter.getName())) {
-                playersCharacterChoice = currentCharacter; // Assign Character once name has been matched.
+            if (playerCharacterName.equals(currentCharacter.getName())) {
+                playersCharacter = currentCharacter; // Assign Character once name has been matched.
             }
         }
 
-        return playersCharacterChoice;
+        return playersCharacter;
     }
 
 
@@ -312,7 +312,7 @@ public class Game {
                 System.out.println("Which item would you like to use? Your inventory includes...");
 
                 // And them use them accordingly... but how tho?
-            // switchTurn goes here;
+
             }
         }
 
