@@ -238,11 +238,9 @@ public class Game {
     private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
         Characters playersCharacterChoice = null;
 
-        for (int i = 0; i < charactersList.size(); i++) {
-            Characters currentCharacter = charactersList.get(i);
-
-            if ( playerCharacterChoice.equals(currentCharacter.getName()) ) {
-                playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
+        for (Characters currentCharacter : charactersList) {
+            if (playerCharacterChoice.equals(currentCharacter.getName())) {
+                playersCharacterChoice = currentCharacter; // Assign Character once name has been matched.
             }
         }
 
@@ -326,12 +324,16 @@ public class Game {
 
     /**
      * If the player opts to attack, damage their opponent.
-     * @param currentPlayer
-     * @param otherPlayer
+     * @param currentPlayer - the player whose turn it is.
+     * @param otherPlayer - the player whose not acting.
      */
     public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
+        //TODO: Change this to be "damageTaken" since a character's attack power is not the same as the damage the deal.
+        // E.g.: opponent's defense and other stats may/will lower the damage.
+        // Actually, you could might even just delete this method and add more functionality to the takeDamage method in the Tank class.
+        // Hmm...
 
         int otherPlayerHealth = otherPlayer.getHealth();
         int otherPlayerDefense = otherPlayer.getDefense();
