@@ -28,7 +28,11 @@ public class Game {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
-        String userInput = sc.nextLine();
+//        String userInput = sc.nextLine();
+
+        // Inputting test data so I don't have to enter in everything manually.
+        String userInput = AutoInput.readFromFile();
+
         System.out.println();
 
 
@@ -222,8 +226,10 @@ public class Game {
      */
     public static String promptForCharacter(Scanner sc) {
         // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        String userSelect = sc.nextLine();
+        System.out.println("Choose your CHARACTER (ALL CAPS!): ");
+//        String userSelect = sc.nextLine();
+
+        String userSelect = AutoInput.readFromFile();
 
         // Need to reassign the user's input, otherwise if user enters wrong name, userSelect is never changed.
         userSelect = userInputValid(userSelect, sc);
@@ -240,7 +246,7 @@ public class Game {
 
         for (Characters currentCharacter : charactersList) {
             if (playerCharacterName.equals(currentCharacter.getName())) {
-                playersCharacter = currentCharacter; // Assign Character once name has been matched.
+                playersCharacter = currentCharacter;
             }
         }
 
@@ -255,7 +261,7 @@ public class Game {
      *
      */
     public static void playerVsPlayerMatch(Player player1, Player player2) {
-        Scanner action = new Scanner(System.in);
+//        Scanner action = new Scanner(System.in);
 
         Characters player1Character = player1.getPlayerCharacter();
         Characters player2Character = player2.getPlayerCharacter();
@@ -293,8 +299,10 @@ public class Game {
                 whoseTurn = "*PLAYER 1*";
             }
 
-            playerAction = action.nextLine();
-            playerAction = userInputValid(playerAction, action);
+//            playerAction = action.nextLine();
+            playerAction = AutoInput.readFromFile();
+
+//            playerAction = userInputValid(playerAction, action);
             System.out.println();
 
             // Player ATTACKS scenario...
