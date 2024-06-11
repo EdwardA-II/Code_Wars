@@ -47,7 +47,6 @@ public class Game {
         // Print Classes and Characters.
 //        System.out.println();
 //        printClassesCharacters();
-        // idk why but these two methods are randomly giving me issues again. smh.
 
         // Create Characters.
         ArrayList<Characters> allCharacters = createCharacters();
