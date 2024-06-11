@@ -1,13 +1,20 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class AutoInput {
     static File testFile = new File("Sample Input/sampleinput1.txt");
     static Scanner fileScanner;
+    static boolean userInputEnabled = false;
     static {
         try {
-            fileScanner = new Scanner(testFile);
+            if (!userInputEnabled) {
+                fileScanner = new Scanner(testFile);
+            }
+            else {
+                fileScanner = new Scanner(System.in);
+            }
         }
         catch (FileNotFoundException e) {
             String mess = "Scanner is messing up";
@@ -16,10 +23,11 @@ public class AutoInput {
 
 
     public static String readFromFile() {
-        String fileLine = "";
+        String fileLine = fileScanner.nextLine();
 
-        fileLine = fileScanner.nextLine();
-        System.out.println(fileLine);
+        if (!userInputEnabled) {
+            System.out.println(fileLine);
+        }
 
         return fileLine;
     }

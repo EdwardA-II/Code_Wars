@@ -13,22 +13,24 @@ public class Game {
         // Move this into another method?
 
         // Play the Main Menu music.
-//        try
-//        {
-//            playMusic();
-//        }
-//        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-//            // System.out.println("Audio File NOT FOUND!");
-//
-//            e.printStackTrace(); // May need to change to tell me which exact error it throws.
-                                        // or maybe not since it should work with the simple print statement above.
-//        }
+        /* try
+        {
+            playMusic();
+        }
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
+
+            e.printStackTrace(); // May need to change to tell me which exact error it throws.
+                                         or maybe not since it should work with the simple print statement above.
+        }
+        */
+
+        AutoInput.userInputEnabled = true;
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
-//        String userInput = sc.nextLine();
 
         // Inputting test data so I don't have to enter in everything manually.
         String userInput = AutoInput.readFromFile();
@@ -226,7 +228,6 @@ public class Game {
     public static String promptForCharacter(Scanner sc) {
         // Prompt for Character Selection.
         System.out.println("Choose your CHARACTER (ALL CAPS!): ");
-//        String userSelect = sc.nextLine();
 
         String userSelect = AutoInput.readFromFile();
 
@@ -298,10 +299,10 @@ public class Game {
                 whoseTurn = "*PLAYER 1*";
             }
 
-//            playerAction = action.nextLine();
+
+//          playerAction = userInputValid(playerAction, AutoInput.fileScanner);
             playerAction = AutoInput.readFromFile();
 
-//            playerAction = userInputValid(playerAction, action);
             System.out.println();
 
             // Player ATTACKS scenario...
