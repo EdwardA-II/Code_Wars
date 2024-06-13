@@ -29,7 +29,7 @@ public class Game {
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
 
         // Inputting test data so I don't have to enter in everything manually.
@@ -40,7 +40,7 @@ public class Game {
 
         // Check if input is valid.
         // Updated to receive new value after being validated. May need to change back to no reassignment.
-        userInput = userInputValid(userInput, sc);
+        userInput = userInputValid(userInput, AutoInput.fileScanner);
 
         // Print rules and mechanics.
 //        System.out.println();
@@ -59,19 +59,20 @@ public class Game {
 
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
-        String player1CharacterChoice = promptForCharacter(sc);
+        String player1CharacterChoice = promptForCharacter(AutoInput.fileScanner);
         Characters player1Character = findCharacterSelection(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
         System.out.println("*PLAYER 2*");
-        String player2CharacterChoice = promptForCharacter(sc);
+        String player2CharacterChoice = promptForCharacter(AutoInput.fileScanner);
         Characters player2Character = findCharacterSelection(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
 
         // Begin the match!
         playerVsPlayerMatch(player1, player2); // Update to include multi-player matches as well.
 
-        sc.close();
+        // Changed everything where it says sc to be AutoInput.fileScanner. yeah change that shit the FUCK back.
+//        AutoInput.fileScannerclose();
 
     }
 
@@ -109,7 +110,7 @@ public class Game {
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input)) {
             System.out.println("INVALID INPUT! Please try again: ");
             System.out.println();
-            input = sc.nextLine();
+            input = AutoInput.readFromFile();
         }
         
         return input;

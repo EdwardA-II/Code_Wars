@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class AutoInput {
     static File testFile = new File("Sample Input/sampleinput1.txt");
     static Scanner fileScanner;
-    static boolean userInputEnabled = false;
+    static boolean userInputEnabled = true;
     static {
         try {
             if (!userInputEnabled) {
