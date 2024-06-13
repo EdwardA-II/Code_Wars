@@ -25,7 +25,6 @@ public class Game {
         }
         */
 
-        AutoInput.userInputEnabled = true;
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
@@ -71,8 +70,7 @@ public class Game {
         // Begin the match!
         playerVsPlayerMatch(player1, player2); // Update to include multi-player matches as well.
 
-        // Changed everything where it says sc to be AutoInput.fileScanner. yeah change that shit the FUCK back.
-//        AutoInput.fileScannerclose();
+
 
     }
 
