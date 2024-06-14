@@ -13,28 +13,33 @@ public class Game {
         // Move this into another method?
 
         // Play the Main Menu music.
-//        try
-//        {
-//            playMusic();
-//        }
-//        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-//            // System.out.println("Audio File NOT FOUND!");
-//
-//            e.printStackTrace(); // May need to change to tell me which exact error it throws.
-                                        // or maybe not since it should work with the simple print statement above.
-//        }
+        /* try
+        {
+            playMusic();
+        }
+        catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            // System.out.println("Audio File NOT FOUND!");
+
+            e.printStackTrace(); // May need to change to tell me which exact error it throws.
+                                         or maybe not since it should work with the simple print statement above.
+        }
+        */
+
 
         System.out.println("******** WELCOME TO CODE COMBAT ********");
 
-        Scanner sc = new Scanner(System.in);
+//        Scanner sc = new Scanner(System.in);
         System.out.println("Enter \"START\" to Play! ");
-        String userInput = sc.nextLine();
+
+        // Inputting test data so I don't have to enter in everything manually.
+        String userInput = AutoInput.readFromFile();
+
         System.out.println();
 
 
         // Check if input is valid.
         // Updated to receive new value after being validated. May need to change back to no reassignment.
-        userInput = userInputValid(userInput, sc);
+        userInput = userInputValid(userInput, AutoInput.fileScanner);
 
         // Print rules and mechanics.
 //        System.out.println();
@@ -43,7 +48,6 @@ public class Game {
         // Print Classes and Characters.
 //        System.out.println();
 //        printClassesCharacters();
-        // idk why but these two methods are randomly giving me issues again. smh.
 
         // Create Characters.
         ArrayList<Characters> allCharacters = createCharacters();
@@ -54,19 +58,19 @@ public class Game {
 
         // Prompt for Character Selection. Assign them to their respective variables.
         System.out.println("*PLAYER 1*");
-        String player1CharacterChoice = promptForCharacter(sc);
+        String player1CharacterChoice = promptForCharacter(AutoInput.fileScanner);
         Characters player1Character = findCharacterSelection(allCharacters, player1CharacterChoice);
         player1.assignCharacter(player1Character);
 
         System.out.println("*PLAYER 2*");
-        String player2CharacterChoice = promptForCharacter(sc);
+        String player2CharacterChoice = promptForCharacter(AutoInput.fileScanner);
         Characters player2Character = findCharacterSelection(allCharacters, player2CharacterChoice);
         player2.assignCharacter(player2Character);
 
         // Begin the match!
         playerVsPlayerMatch(player1, player2); // Update to include multi-player matches as well.
 
-        sc.close();
+
 
     }
 
@@ -104,7 +108,7 @@ public class Game {
         while ( !menuInputs.contains(input) && !characterInputs.contains(input) && !actionInputs.contains(input)) {
             System.out.println("INVALID INPUT! Please try again: ");
             System.out.println();
-            input = sc.nextLine();
+            input = AutoInput.readFromFile();
         }
         
         return input;
@@ -222,8 +226,9 @@ public class Game {
      */
     public static String promptForCharacter(Scanner sc) {
         // Prompt for Character Selection.
-        System.out.print("Choose your CHARACTER (ALL CAPS!): ");
-        String userSelect = sc.nextLine();
+        System.out.println("Choose your CHARACTER (ALL CAPS!): ");
+
+        String userSelect = AutoInput.readFromFile();
 
         // Need to reassign the user's input, otherwise if user enters wrong name, userSelect is never changed.
         userSelect = userInputValid(userSelect, sc);
@@ -235,17 +240,16 @@ public class Game {
     }
 
 
-    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterChoice) {
-        Characters playersCharacterChoice = null;
+    private static Characters findCharacterSelection(ArrayList<Characters> charactersList, String playerCharacterName) {
+        Characters playersCharacter = null;
 
-        for (int i = 0; i < charactersList.size(); i++) {
-            Characters currentCharacter = charactersList.get(i);
-
-            if ( playerCharacterChoice.equals(currentCharacter.getName()) ) {
-                playersCharacterChoice = charactersList.get(i); // Assign Character once name has been matched.
+        for (Characters currentCharacter : charactersList) {
+            if (playerCharacterName.equals(currentCharacter.getName())) {
+                playersCharacter = currentCharacter;
             }
         }
-        return playersCharacterChoice;
+
+        return playersCharacter;
     }
 
 
@@ -256,7 +260,7 @@ public class Game {
      *
      */
     public static void playerVsPlayerMatch(Player player1, Player player2) {
-        Scanner action = new Scanner(System.in);
+//        Scanner action = new Scanner(System.in);
 
         Characters player1Character = player1.getPlayerCharacter();
         Characters player2Character = player2.getPlayerCharacter();
@@ -294,8 +298,9 @@ public class Game {
                 whoseTurn = "*PLAYER 1*";
             }
 
-            playerAction = action.nextLine();
-            playerAction = userInputValid(playerAction, action);
+//            playerAction = AutoInput.readFromFile();
+            playerAction = userInputValid(AutoInput.readFromFile(), AutoInput.fileScanner);
+
             System.out.println();
 
             // Player ATTACKS scenario...
@@ -313,7 +318,7 @@ public class Game {
                 System.out.println("Which item would you like to use? Your inventory includes...");
 
                 // And them use them accordingly... but how tho?
-            // switchTurn goes here;
+
             }
         }
 
@@ -325,19 +330,23 @@ public class Game {
 
     /**
      * If the player opts to attack, damage their opponent.
-     * @param currentPlayer
-     * @param otherPlayer
+     * @param currentPlayer - the player whose turn it is.
+     * @param otherPlayer - the player whose not acting.
      */
     public static void pvpAttack(Characters currentPlayer, Characters otherPlayer) {
         System.out.println(currentPlayer.getName() + " attacks " + otherPlayer.getName() + " for "
         + currentPlayer.getAttack() + " DAMAGE!");
+        //TODO: Change this to be "damageTaken" since a character's attack power is not the same as the damage the deal.
+        // E.g.: opponent's defense and other stats may/will lower the damage.
+        // Actually, you could might even just delete this method and add more functionality to the takeDamage method in the Tank class.
+        // Hmm...
 
-        int player2Health = otherPlayer.getHealth();
-        int player2Defense = otherPlayer.getDefense();
-        int player1Attack = currentPlayer.getAttack();
+        int otherPlayerHealth = otherPlayer.getHealth();
+        int otherPlayerDefense = otherPlayer.getDefense();
+        int currentPlayerAttack = currentPlayer.getAttack();
 
-        currentPlayer.attack(player2Health, player2Defense);
-        otherPlayer.takeDamage(player1Attack);
+        currentPlayer.attack(otherPlayerHealth, otherPlayerDefense);
+        otherPlayer.takeDamage(currentPlayerAttack);
     }
 
 
