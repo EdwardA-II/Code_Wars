@@ -298,9 +298,8 @@ public class Game {
                 whoseTurn = "*PLAYER 1*";
             }
 
-
-//          playerAction = userInputValid(playerAction, AutoInput.fileScanner);
-            playerAction = AutoInput.readFromFile();
+//            playerAction = AutoInput.readFromFile();
+            playerAction = userInputValid(AutoInput.readFromFile(), AutoInput.fileScanner);
 
             System.out.println();
 
