@@ -4,9 +4,11 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class AutoInput {
-    static File testFile = new File("Sample Input/sampleinput1.txt");
+    static File testFile = new File("Code_Combat/Sample Input/sampleinput1.txt");
+    // Laptop makes me use "Code_Combat/Sample Input/sampleinput1.txt" while desktop is fine with just "Sample Input/sampleinput1.txt"
+    // idk why...
     static Scanner fileScanner;
-    static boolean userInputEnabled = true;
+    static boolean userInputEnabled = false;
     static {
         try {
             if (!userInputEnabled) {
@@ -17,7 +19,8 @@ public class AutoInput {
             }
         }
         catch (FileNotFoundException e) {
-            String mess = "Scanner is messing up";
+            String mess = "Scanner is messing up!";
+            System.out.println(mess);
         }
     }
 
