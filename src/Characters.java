@@ -27,7 +27,7 @@ public interface Characters {
      * 
      * @return The OPPONENT's health after attacking their HEALTH and DEFENSE. 
      */
-    public int attack(int opponentHealth, int opponentDefense);
+    public double attack(double opponentHealth, double opponentDefense);
 
     /**
      * Attacks the player's OPPONENT with the Character's Special Ability.
@@ -52,15 +52,16 @@ public interface Characters {
 
     /**
      * Returns the current health of the Character.
+     *
      * @return - Current health
      */
-    public int getHealth();
+    public double getHealth();
 
     /**
      * Changes the health to the specified value.
      * @param newHealth - Value to set the Character's health to.
      */
-    public void setHealth(int newHealth);
+    public void setHealth(double newHealth);
 
     /**
      * @return the defense

@@ -1,7 +1,7 @@
 
 public class Tank implements Characters {
     String name = "";
-    int health = 1500;
+    double health = 1500;
     int attack = 200; // Increase/decrease for balance?
     int defense = 750;
     int accuracy = 0; // Still need to figure out how to implement ACCURACY.
@@ -41,16 +41,16 @@ public class Tank implements Characters {
      * @return the health
      */
     @Override
-    public int getHealth() 
+    public double getHealth()
     {
         return this.health;
     }
 
     /**
-     * @param health the defense to set
+     * @param newHealth the defense to set
      */
     @Override
-    public void setHealth(int newHealth) 
+    public void setHealth(double newHealth)
     {
         this.health = newHealth;
     }
@@ -101,7 +101,7 @@ public class Tank implements Characters {
     }
 
     /**
-     * @param itemCapacity the itemCapacity to the new total number of items the character can carry (capacity).
+     * @param newItemCapacity the itemCapacity to the new total number of items the character can carry (capacity).
      */
     @Override
     public void setItemCapacity(int newItemCapacity) 
@@ -118,9 +118,9 @@ public class Tank implements Characters {
      * @return The PLAYER's health their OPPONENT's attack. 
      */
     @Override
-    public void takeDamage(int damageTaken)
-    {
-        this.health = (this.health + defense) - damageTaken;
+    public void takeDamage(int damageTaken) {
+        double damageReduction = (damageTaken * 0.5);
+        this.health = health - damageReduction;
     }
 
     /**
@@ -132,7 +132,7 @@ public class Tank implements Characters {
      * @return The OPPONENT's health after attacking their HEALTH and DEFENSE. 
      */
     @Override
-    public int attack(int opponentHealth, int opponentDefense) 
+    public double attack(double opponentHealth, double opponentDefense)
     {
         // Call with the OPPONENT's current health (opponentName.getHealth)
         
@@ -173,7 +173,7 @@ public class Tank implements Characters {
     /**
      * Changes the Character's attack value
      * Useful for when other Characters lower or alter the Character's attack power.
-     * @param attack - The Character's attack value.
+     * @param newAttack - The Character's attack value.
      */
     public void setAttack(int newAttack)
     {

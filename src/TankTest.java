@@ -19,7 +19,7 @@ public class TankTest {
     {
         // Assuming the Opponent's Health is 1500 and Defense is 300...
         Characters chara = new Tank("test");
-        int oppHealth = chara.attack(1500, 300);
+        double oppHealth = chara.attack(1500, 300);
         assertEquals(1600, oppHealth);
 
     }

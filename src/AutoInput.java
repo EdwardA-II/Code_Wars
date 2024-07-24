@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class AutoInput {
-    static File testFile = new File("Code_Combat/Sample Input/sampleinput1.txt");
+    static File testFile = new File("Sample Input/sampleinput1.txt");
     // Laptop makes me use "Code_Combat/Sample Input/sampleinput1.txt" while desktop is fine with just "Sample Input/sampleinput1.txt"
     // idk why...
     static Scanner fileScanner;

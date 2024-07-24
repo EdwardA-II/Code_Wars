@@ -41,6 +41,7 @@ public class Game {
         // Updated to receive new value after being validated. May need to change back to no reassignment.
         userInput = userInputValid(userInput, AutoInput.fileScanner);
 
+
         // Print rules and mechanics.
 //        System.out.println();
 //        printRulesMechanics();
@@ -341,7 +342,7 @@ public class Game {
         // Actually, you could might even just delete this method and add more functionality to the takeDamage method in the Tank class.
         // Hmm...
 
-        int otherPlayerHealth = otherPlayer.getHealth();
+        double otherPlayerHealth = otherPlayer.getHealth();
         int otherPlayerDefense = otherPlayer.getDefense();
         int currentPlayerAttack = currentPlayer.getAttack();
 
